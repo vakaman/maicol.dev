@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+<main class="json">
+
+  <div class="block">
+    {% if site.json.name %}
+    <p><span class="key">"name"</span><span class="attr">{{ site.json.name }}</span></p>
+    {% else %}
+    <p><span class="key">"name"</span><span class="attr">{{ site.title }}</span></p>
+    {% endif %}
+    {% if site.json.description %}
+    {% if site.json.description.first %}
+    <div id="typed-strings">
+      {% for i in site.json.description %}
+      <span>{{ i | prepend: '"' | append: '",'}}</span>
+      {% endfor %}
+    </div>
+    <p><span class="key">"description"</span>{% include typed.html %}</p>
+    {% else %}
+    <p><span class="key">"description"</span><span class="attr">{{ site.json.description }}</span></p>
+    {% endif %}
+    {% else %}
+    <p><span class="key">"description"</span><span class="attr">{{ site.description }}</span></p>
+    {% endif %}
+  </div>
+
+  <div class="block">
+    {% if site.json.cv %}
+    {% assign cv = site.json.cv | split: "/" | slice: -1 %}
+    <p><span class="key">"cv"</span><span class="attr"><a href="{{ site.json.cv }}" target="_blank">{{ cv }}</a></span></p>
+    {% endif %}
+  </div>
+  <div class="block">
+    {% if site.json.address %}
+    {% if site.json.address.first %}
+    <p><span class="array-key">address</span></p>
+    <div class="array">
+      {% for i in site.json.address %}
+      <p class="array-attr">{{ i }}</p>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p><span class="key">address</span><span class="attr">{{ site.json.address }}</span></p>
+    {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="block">
+    {% if site.json.contact %}
+    {% if site.json.contact.first %}
+    <p><span class="list-key">"contact"</span></p>
+    <div class="list">
+      {% for i in site.json.contact %}
+      <p><span class="list-subkey">"{{ i | slice: 0 }}"</span><span class="list-attr">{{ i | slice: 1 }}</span></p>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p><span class="key">contact</span><span class="attr">{{ site.json.contact }}</span></p>
+    {% endif %}
+    {% endif %}
+  </div>
+
+  <div class="block">
+    {% if site.json.social_media %}
+    {% if site.json.social_media.linkedin %}
+    <p><span class="list-key">"social_media"</span></p>
+    <div class="list">
+      {% for i in site.json.social_media %}
+        <p>
+            <span class="list-subkey">"{{ i | slice: 0 }}"</span>
+            <a href="{{ i | slice: 1 }}" target="_blank">"{{ i | slice: 1 }}"</a>,
+        </p>
+        <!-- <p><span class="list-subkey">{{ i | slice: 0 }}</span><span class="list-attr">{{ i | slice: 1 }}</span></p> -->
+      {% endfor %}
+    </div>
+    {% else %}
+    <p><span class="key">contact</span><span class="attr">{{ site.json.contact }}</span></p>
+    {% endif %}
+    {% endif %}
+  </div>
+
+
+  <div class="block">
+    {% if site.json.certifications %}
+    {% assign certificate = site.json.certifications %}
+    <p><span class="key">certifications</span><span class="attr"><a href="{{ certificate }}" target="_blank">{{ certificate }}</a></span></p>
+    {% endif %}
+  </div>
+
+</main>

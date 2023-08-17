@@ -1,0 +1,38 @@
+title: Maicol.dev
+description: This is my portfolio
+baseurl: ""
+url: https://maicol.dev
+
+json:
+  name: Maicol Kaiser Oliveira
+  description:
+    - Hello!
+    - I'm a software engineer
+    - Build awesome applications is something that's make me happy
+    - I already workt as a network engineer
+    - Fell free to contact me
+  cv: cv.md
+  contact:
+    email: eu@mail.dev
+  certifications: https://drive.google.com/drive/folders/1d2HjHINeU2ezZauGxIuCgqFK1KIbYZv9
+  social_media:
+    linkedin: https://linkedin.com/in/maicolkaiseroliveira
+    stackoverflow: https://stackoverflow.com/users/22402101/maicol-kaiser-oliveira
+    instagram: https://www.instagram.com/maicolvk
+    twitter: https://twitter.com/maicolvaka
+
+exclude:
+  - LICENSE
+  - README.md
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+whitelist:
+  - jekyll-sitemap
+
+sass:
+  sass_dir: _sass
+  style: compressed
+  sourcemap: never
