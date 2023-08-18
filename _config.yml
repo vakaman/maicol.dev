@@ -7,10 +7,10 @@ json:
   name: Maicol Kaiser Oliveira
   description:
     - Hello!
-    - I'm a software engineer
-    - Build awesome applications is something that's make me happy
-    - I already workt as a network engineer
-    - Fell free to contact me
+    - I'm a software <br> engineer
+    - Build awesome  <br> applications is something <br> that's make me happy
+    - I already workt as a <br> network engineer
+    - Fell free <br> to contact me
   resume: https://drive.google.com/file/d/1gYNZwiUtnLjLBHLAZjIQh21uB8sE-pNE/view
   contact:
     email: eu@mail.dev
