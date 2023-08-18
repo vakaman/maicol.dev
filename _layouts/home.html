@@ -27,11 +27,15 @@ layout: default
   </div>
 
   <div class="block">
-    {% if site.json.cv %}
-    {% assign cv = site.json.cv | split: "/" | slice: -1 %}
-    <p><span class="key">"cv"</span><span class="attr"><a href="{{ site.json.cv }}" target="_blank">{{ cv }}</a></span></p>
+    {% if site.json.resume %}
+    {% assign resume = site.json.resume %}
+    <p>
+      <span class="key">"resume"</span>
+      <span class="attr"><a href="{{ resume }}" target="_blank">resume.pdf</a></span>
+    </p>
     {% endif %}
   </div>
+
   <div class="block">
     {% if site.json.address %}
     {% if site.json.address.first %}
@@ -68,11 +72,10 @@ layout: default
     <p><span class="list-key">"social_media"</span></p>
     <div class="list">
       {% for i in site.json.social_media %}
+        {% assign url = i | slice: 1 %}
         <p>
-            <span class="list-subkey">"{{ i | slice: 0 }}"</span>
-            <a href="{{ i | slice: 1 }}" target="_blank">"{{ i | slice: 1 }}"</a>,
+          <span class="list-subkey">"{{ i | slice: 0 }}"</span><a href="{{ url }}" target="_blank">"{{ i | slice: 0 }}.html"</a>,
         </p>
-        <!-- <p><span class="list-subkey">{{ i | slice: 0 }}</span><span class="list-attr">{{ i | slice: 1 }}</span></p> -->
       {% endfor %}
     </div>
     {% else %}
@@ -85,7 +88,8 @@ layout: default
   <div class="block">
     {% if site.json.certifications %}
     {% assign certificate = site.json.certifications %}
-    <p><span class="key">certifications</span><span class="attr"><a href="{{ certificate }}" target="_blank">{{ certificate }}</a></span></p>
+    {% assign cert = site.json.certifications | truncate: 25 %}
+    <p><span class="key">certifications</span><span class="attr"><a href="{{ certificate }}" target="_blank">certificates.xml</a></span></p>
     {% endif %}
   </div>
 
