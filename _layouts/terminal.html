@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html> {% include headTerminal.html %}
+<html> {% include headTerminal.html %} <style>
+  .myTerminal {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+
+</style>
 
 <body>
-
+  <div class="myTerminal" id="myTerminal"></div>
 </body>
 <script type="text/javascript">
+  $(function () {
+    terminal = $('.myTerminal').terminal({},
+      {
+        onResume: function() {
+          //this.insert('testing');
+          //this.invoke_key('ENTER');
 
-  $('body').terminal({
-    hello: function () {
-      this.echo('Hello, Wellcome to this terminal.');
-    },
+        },
+        history: true,
+        autocompleteMenu: true,
+        prompt: 'eu@maicol.dev:$ ',
+        greetings: "\r\n    __________________________________ \r\n \
+  / Hello, I hope you are well.        \\ \r\n \
+  | Now Im going to tell you about some  | \r\n \
+  | of the technical experiences ive had | \r\n \
+  \\ throughout my life                 / \r\n \
+    ---------------------------------- \r\n \
+              .--. \r\n \
+             |o_o | \r\n \
+             |:_/ | \r\n \
+            //   \\ \\ \r\n \
+           (|     | ) \r\n \
+          /'\\_   _/`\\ \r\n \
+          \\___)=(___/",
 
-  }, {
-    greetings: "\r\n    __________________________________ \r\n \
- / Hello, I hope you are well.        \\ \r\n \
-| Now Im going to tell you about some  | \r\n \
-| of the technical experiences ive had | \r\n \
- \\ throughout my life                 / \r\n \
-   ---------------------------------- \r\n \
-             .--. \r\n \
-            |o_o | \r\n \
-            |:_/ | \r\n \
-           //   \\ \\ \r\n \
-          (|     | ) \r\n \
-         /'\\_   _/`\\ \r\n \
-         \\___)=(___/"
+        test: "testando",
+
+      });
   });
-
 </script>
 
 </html>
