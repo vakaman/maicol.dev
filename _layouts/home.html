@@ -74,12 +74,12 @@ layout: default
     {% if site.json.certifications %}
     {% assign certificate = site.json.certifications %}
     {% assign cert = site.json.certifications | truncate: 25 %}
-    <p><span class="key">certifications</span><span class="attr"><a href="{{ certificate }}" target="_blank">certificates.xml</a></span></p>
+    <p><span class="key">"certifications"</span><span class="attr"><a href="{{ certificate }}" target="_blank">certificates.xml</a></span></p>
     {% endif %}
   </div>
 
   <div class="block">
-    <p><span class="key">experiences</span><span class="attr"><a href="experiences">experiences.sh</a></span></p>
+    <p><span class="key">"experiences"</span><span class="attr"><a href="experiences">experiences.sh</a></span></p>
   </div>
 
 
