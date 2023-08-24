@@ -9,13 +9,14 @@ json:
     - Hello!
     - I'm backend software <br> engineer
     - Build awesome <br> applications is something <br> that's make me happy
-    - I already workt as a <br> network engineer too
+    - I already worked as <br> network engineer too
     - Fell free to <br> contact me
   resume: https://drive.google.com/file/d/1gYNZwiUtnLjLBHLAZjIQh21uB8sE-pNE/view
   contact:
     email: eu@maicol.dev
   certifications: https://drive.google.com/drive/folders/1d2HjHINeU2ezZauGxIuCgqFK1KIbYZv9
   social_media:
+    github: https://github.com/vakaman
     linkedin: https://linkedin.com/in/maicolkaiseroliveira
     stackoverflow: https://stackoverflow.com/users/22402101/maicol-kaiser-oliveira
     instagram: https://www.instagram.com/maicolvk
