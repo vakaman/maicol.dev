@@ -1,0 +1,3 @@
+At Sympla, as a Senior Software Engineer, I worked across multiple fronts: Access Team, Architecture Team, Blockchain, and Data Intelligence. I worked with PHP 7 and 8 on Symfony, microservices, SQS, MySQL, PostgreSQL, DynamoDB, Docker, Kubernetes, PHPUnit, and JUnit.
+
+Some of the most relevant deliveries included rebuilding the login and registration flow, implementing Keycloak following OAuth 2.0 best practices, evolving account, authentication, and authorization domains, building services with Kotlin, Java, and WebFlux, using Kafka, SNS, and SQS, and evolving serverless Python applications on AWS Lambda together with scalable event-driven APIs.

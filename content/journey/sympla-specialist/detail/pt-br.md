@@ -1,0 +1,3 @@
+Como Backend Specialist na Sympla, passei a atuar com maior foco em decisões de plataforma e evolução arquitetural. Entre os destaques estão a implementação do KrakenD para substituir o gateway atual, a evolução do Keycloak com Java e Quarkus e um novo fluxo de cadastro em Kotlin com Spring Boot e corrotinas.
+
+Também aprofundei o uso de IA no desenvolvimento de software, com entendimento prático de tool calls, fluxos de execução, escrita de especificações técnicas e PRDs, além do uso disciplinado de Rules e Skills para orientar desenvolvimento assistido por IA. Esse contexto elevou produtividade, cobertura de testes e qualidade estrutural do código.

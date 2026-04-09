@@ -1,0 +1,3 @@
+My professional journey started at Masternet Telecom, where I spent more than seven years working across development, networking, and operations. During that time I worked on a PHP-based ERP, built automations with Python and Shell, and maintained CI/CD pipelines with GitLab and GitHub Actions.
+
+At the same time, I took on major infrastructure responsibilities: ISP network administration, BGP, OSPF, and MPLS operations, GPON environment configuration, and Layer 2/3 switch management. I also maintained critical services such as recursive and authoritative DNS, FreeRadius, Apache, Nginx, PostgreSQL and MySQL databases, plus observability stacks with Zabbix, Graylog, Grafana, and PhpIPAM.

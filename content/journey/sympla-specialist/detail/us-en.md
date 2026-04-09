@@ -1,0 +1,3 @@
+As a Backend Specialist at Sympla, I moved into a stronger platform and architectural role. Key highlights include the KrakenD implementation to replace the current gateway, the evolution of Keycloak with Java and Quarkus, and a new registration flow in Kotlin with Spring Boot and coroutines.
+
+I also deepened my use of AI in software development, with practical knowledge of tool calls, execution flows, technical specifications, and PRDs, plus disciplined use of Rules and Skills to guide AI-assisted development. That context improved productivity, test coverage, and the structural quality of the codebase.
