@@ -59,16 +59,16 @@ class MockIntersectionObserver {
 
 function renderTimeline() {
   return render(
-    <LocaleProvider>
-      <MemoryRouter
-        future={{
-          v7_relativeSplatPath: true,
-          v7_startTransition: true,
-        }}
-      >
+    <MemoryRouter
+      future={{
+        v7_relativeSplatPath: true,
+        v7_startTransition: true,
+      }}
+    >
+      <LocaleProvider>
         <TimelineSection />
-      </MemoryRouter>
-    </LocaleProvider>,
+      </LocaleProvider>
+    </MemoryRouter>,
   );
 }
 

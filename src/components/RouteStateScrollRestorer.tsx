@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 interface ReturnLocationState {
   restoreEntryId?: string;
   restoreScrollY?: number;
+  scrollToSection?: string;
 }
 
 const RouteStateScrollRestorer = () => {
@@ -11,11 +12,24 @@ const RouteStateScrollRestorer = () => {
   const state = location.state as ReturnLocationState | null;
 
   useEffect(() => {
-    if (!state?.restoreEntryId && typeof state?.restoreScrollY !== "number") {
+    if (!state?.restoreEntryId && typeof state?.restoreScrollY !== "number" && !state?.scrollToSection) {
       return;
     }
 
     const frame = window.requestAnimationFrame(() => {
+      if (state?.scrollToSection) {
+        const target = document.getElementById(state.scrollToSection);
+
+        if (target) {
+          target.scrollIntoView({
+            block: "start",
+            behavior: "smooth",
+          });
+
+          return;
+        }
+      }
+
       if (state?.restoreEntryId) {
         const target = document.getElementById(`journey-entry-${state.restoreEntryId}`);
 
@@ -40,7 +54,7 @@ const RouteStateScrollRestorer = () => {
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, [location.key, state?.restoreEntryId, state?.restoreScrollY]);
+  }, [location.key, state?.restoreEntryId, state?.restoreScrollY, state?.scrollToSection]);
 
   return null;
 };

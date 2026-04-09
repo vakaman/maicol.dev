@@ -11,6 +11,7 @@ export interface BackNavigationState {
 export function navigateToPreviousContext(
   navigate: NavigateFunction,
   state?: BackNavigationState | null,
+  fallbackPath = "/",
 ) {
   if (state?.returnTo) {
     navigate(state.returnTo.pathname, {
@@ -28,5 +29,5 @@ export function navigateToPreviousContext(
     return;
   }
 
-  navigate("/");
+  navigate(fallbackPath);
 }

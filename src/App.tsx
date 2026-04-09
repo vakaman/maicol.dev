@@ -7,33 +7,35 @@ import RouteStateScrollRestorer from "@/components/RouteStateScrollRestorer";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import { getRouterBasename } from "../site.config";
 import Index from "./pages/Index.tsx";
-import HistoriaDetail from "./pages/HistoriaDetail.tsx";
+import JourneyDetail from "./pages/JourneyDetail.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <LocaleProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter
-          basename={getRouterBasename(import.meta.env.BASE_URL)}
-          future={{
-            v7_relativeSplatPath: true,
-            v7_startTransition: true,
-          }}
-        >
+    <BrowserRouter
+      basename={getRouterBasename(import.meta.env.BASE_URL)}
+      future={{
+        v7_relativeSplatPath: true,
+        v7_startTransition: true,
+      }}
+    >
+      <LocaleProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
           <RouteStateScrollRestorer />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/historia/:id" element={<HistoriaDetail />} />
+            <Route path="/pt-br" element={<Index />} />
+            <Route path="/journey/:id" element={<JourneyDetail />} />
+            <Route path="/pt-br/journey/:id" element={<JourneyDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
-    </LocaleProvider>
+        </TooltipProvider>
+      </LocaleProvider>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 

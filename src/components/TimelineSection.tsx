@@ -3,6 +3,7 @@ import { type MouseEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useLocale } from "@/contexts/LocaleContext";
+import { getLocalizedPath } from "@/lib/locale-routing";
 
 export interface TimelineEntry {
   id: string;
@@ -14,7 +15,7 @@ export interface TimelineEntry {
 }
 
 const TimelineSection = () => {
-  const { content } = useLocale();
+  const { content, locale } = useLocale();
   const location = useLocation();
   const navigate = useNavigate();
   const entryRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -22,14 +23,14 @@ const TimelineSection = () => {
 
   function handleReadMore(event: MouseEvent<HTMLAnchorElement>, entryId: string) {
     event.preventDefault();
-    navigate(`/historia/${entryId}`, {
+    navigate(getLocalizedPath(locale, `/journey/${entryId}`), {
       state: {
         returnTo: {
           entryId,
-          pathname: `${location.pathname}${location.search}${location.hash}`,
-          scrollY: window.scrollY,
-        },
-      },
+                    pathname: `${location.pathname}${location.search}${location.hash}`,
+                    scrollY: window.scrollY,
+                  },
+                },
     });
   }
 
@@ -78,7 +79,7 @@ const TimelineSection = () => {
   }, [content.journey.entries]);
 
   return (
-    <section id="journey" className="relative z-10 py-24 px-6">
+    <section id="journey" className="relative z-10 py-24 px-6 scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16">
           <span className="font-mono text-sm text-primary tracking-wider">
@@ -140,7 +141,7 @@ const TimelineSection = () => {
                     {entry.summary}
                   </p>
                   <Link
-                    to={`/historia/${entry.id}`}
+                    to={getLocalizedPath(locale, `/journey/${entry.id}`)}
                     onClick={(event) => handleReadMore(event, entry.id)}
                     className="inline-flex items-center gap-1 mt-3 text-sm font-mono text-primary/70 hover:text-primary transition-colors group"
                   >

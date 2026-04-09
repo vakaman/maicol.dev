@@ -4,7 +4,7 @@ const ExperienceSection = () => {
   const { content } = useLocale();
 
   return (
-    <section id="experiences" className="relative z-10 py-24 px-6">
+    <section id="experiences" className="relative z-10 py-24 px-6 scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <span className="font-mono text-sm text-primary tracking-wider">

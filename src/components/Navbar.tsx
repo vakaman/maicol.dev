@@ -1,28 +1,85 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useLocale } from "@/contexts/LocaleContext";
+import { getLocalizedPath, stripLocalePrefix } from "@/lib/locale-routing";
 
 const Navbar = () => {
   const { content, locale, setLocale } = useLocale();
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = stripLocalePrefix(location.pathname) === "/";
+
+  function scrollToSection(sectionId: string) {
+    const target = document.getElementById(sectionId);
+
+    if (!target) {
+      return;
+    }
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  function handleNavLinkClick(href: string) {
+    if (!href.startsWith("#")) {
+      window.open(href, "_blank", "noopener,noreferrer");
+      return;
+    }
+
+    const sectionId = href.slice(1);
+    setOpen(false);
+
+    if (isHomePage) {
+      scrollToSection(sectionId);
+      return;
+    }
+
+    navigate(getLocalizedPath(locale, "/"), {
+      state: {
+        scrollToSection: sectionId,
+      },
+    });
+  }
+
+  function handleBrandClick() {
+    setOpen(false);
+
+    if (isHomePage) {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+
+      return;
+    }
+
+    navigate(getLocalizedPath(locale, "/"));
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a href="#" className="font-heading font-bold text-foreground text-sm tracking-wider">
+        <button
+          type="button"
+          onClick={handleBrandClick}
+          className="font-heading font-bold text-foreground text-sm tracking-wider"
+        >
           <span className="text-primary">{">"}</span> {content.navbar.brand}
-        </a>
+        </button>
         <div className="hidden md:flex items-center gap-8">
           {content.navbar.links.map((link) => (
-            <a
+            <button
               key={link.href}
-              href={link.href}
-              rel={link.external ? "noreferrer" : undefined}
-              target={link.external ? "_blank" : undefined}
+              type="button"
+              onClick={() => handleNavLinkClick(link.href)}
               className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors tracking-wider"
             >
               {link.label}
-            </a>
+            </button>
           ))}
           <div
             className="flex items-center gap-1 rounded-sm border border-border bg-card/70 p-1"
@@ -61,16 +118,14 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border px-6 py-4 space-y-3">
           {content.navbar.links.map((link) => (
-            <a
+            <button
               key={link.href}
-              href={link.href}
-              rel={link.external ? "noreferrer" : undefined}
-              onClick={() => setOpen(false)}
-              target={link.external ? "_blank" : undefined}
+              type="button"
+              onClick={() => handleNavLinkClick(link.href)}
               className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               {link.label}
-            </a>
+            </button>
           ))}
           <div className="flex items-center gap-2 pt-2">
             <span className="font-mono text-xs text-muted-foreground">{content.navbar.localeLabel}</span>

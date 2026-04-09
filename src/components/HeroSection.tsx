@@ -1,10 +1,31 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useLocale } from "@/contexts/LocaleContext";
 
 const HeroSection = () => {
   const { content } = useLocale();
+  const navigate = useNavigate();
   const [displayText, setDisplayText] = useState("");
   const fullText = content.hero.role;
+
+  function handleScrollToExperiences() {
+    const target = document.getElementById("experiences");
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      return;
+    }
+
+    navigate("/", {
+      state: {
+        scrollToSection: "experiences",
+      },
+    });
+  }
 
   useEffect(() => {
     setDisplayText("");
@@ -41,13 +62,14 @@ const HeroSection = () => {
           ))}
         </div>
         <div className="mt-12">
-          <a
-            href="#experiences"
+          <button
+            type="button"
+            onClick={handleScrollToExperiences}
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors font-mono text-sm"
           >
             <span>{content.hero.cta}</span>
             <span className="animate-bounce">↓</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>
