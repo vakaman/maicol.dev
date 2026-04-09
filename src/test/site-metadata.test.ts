@@ -9,6 +9,8 @@ describe("site metadata", () => {
 
     expect(indexHtml).toContain('content="https://maicol.dev"');
     expect(indexHtml).toContain('content="https://maicol.dev/favicon.ico"');
+    expect(indexHtml).toContain('rel="canonical" href="https://maicol.dev"');
+    expect(indexHtml).toContain('hreflang="pt-BR" href="https://maicol.dev/pt-br"');
     expect(indexHtml).not.toMatch(legacyBrandPattern);
   });
 });

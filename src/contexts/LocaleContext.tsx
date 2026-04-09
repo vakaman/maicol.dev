@@ -5,7 +5,9 @@ import {
   useState,
   type PropsWithChildren,
 } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getSiteContent, type SiteContent } from "@/content/siteContent";
+import { DEFAULT_LOCALE, getHtmlLang, getLocalizedPath, resolveLocaleFromPathname } from "@/lib/locale-routing";
 
 export type Locale = "pt-br" | "us-en";
 
@@ -21,7 +23,7 @@ const LocaleContext = createContext<LocaleContextValue | undefined>(undefined);
 
 function getBrowserLocale(): Locale {
   if (typeof window === "undefined") {
-    return "pt-br";
+    return DEFAULT_LOCALE;
   }
 
   const storedLocale = window.localStorage.getItem(STORAGE_KEY);
@@ -29,19 +31,36 @@ function getBrowserLocale(): Locale {
     return storedLocale;
   }
 
-  return window.navigator.language.toLowerCase().startsWith("pt") ? "pt-br" : "us-en";
-}
-
-function getDocumentLang(locale: Locale): string {
-  return locale === "pt-br" ? "pt-BR" : "en-US";
+  return DEFAULT_LOCALE;
 }
 
 export function LocaleProvider({ children }: PropsWithChildren) {
-  const [locale, setLocale] = useState<Locale>(() => getBrowserLocale());
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [locale, setLocaleState] = useState<Locale>(() => getBrowserLocale());
+
+  useEffect(() => {
+    const pathnameLocale = resolveLocaleFromPathname(location.pathname);
+    setLocaleState(pathnameLocale);
+  }, [location.pathname]);
+
+  function setLocale(nextLocale: Locale) {
+    setLocaleState(nextLocale);
+
+    const nextPath = getLocalizedPath(nextLocale, location.pathname);
+    navigate(
+      {
+        hash: location.hash,
+        pathname: nextPath,
+        search: location.search,
+      },
+      { replace: nextPath === location.pathname },
+    );
+  }
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, locale);
-    document.documentElement.lang = getDocumentLang(locale);
+    document.documentElement.lang = getHtmlLang(locale);
   }, [locale]);
 
   return (

@@ -1,5 +1,5 @@
 import { BookText, Cloud, Github, Globe, Instagram, Linkedin, Mail, Network, Server, Shield, Terminal, Trophy, Twitter, Workflow, type LucideIcon } from "lucide-react";
-import { getMarkdownParagraphs } from "@/lib/content";
+import { getMarkdownContent } from "@/lib/content";
 import type { Locale } from "@/contexts/LocaleContext";
 import { messages } from "@/i18n/messages";
 import type { JourneyType } from "@/i18n/locales/types";
@@ -19,7 +19,7 @@ export interface ExperienceItemContent {
 }
 
 export interface TimelineEntryContent {
-  detail: string[];
+  detail: string;
   id: string;
   skills: string[];
   summary: string;
@@ -195,7 +195,7 @@ export function getSiteContent(locale: Locale): SiteContent {
     journey: {
       eyebrow: copy.journey.eyebrow,
       entries: timelineDefinitions.map((item) => ({
-        detail: getMarkdownParagraphs(`journey/${item.id}/detail/${locale}.md`),
+        detail: getMarkdownContent(`journey/${item.id}/detail/${locale}.md`),
         id: item.id,
         skills: copy.journey.entries[item.id].skills,
         summary: copy.journey.entries[item.id].summary,
@@ -233,5 +233,5 @@ export function getJourneyEntry(locale: Locale, id: string) {
 }
 
 export function getDefaultSiteTitle(): string {
-  return messages["pt-br"].navbar.brand;
+  return messages["us-en"].navbar.brand;
 }

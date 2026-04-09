@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "highlight.js/styles/base16/dracula.css";
 
 @tailwind base;
 @tailwind components;
@@ -140,4 +141,42 @@
 ::selection {
   background: hsl(120 100% 40% / 0.3);
   color: hsl(120 100% 80%);
+}
+
+.markdown-code-block code.hljs {
+  background: transparent;
+  padding: 0;
+}
+
+.markdown-code-block .hljs-keyword,
+.markdown-code-block .hljs-selector-tag,
+.markdown-code-block .hljs-literal,
+.markdown-code-block .hljs-section,
+.markdown-code-block .hljs-link {
+  color: #ff79c6;
+}
+
+.markdown-code-block .hljs-string,
+.markdown-code-block .hljs-attr,
+.markdown-code-block .hljs-template-tag,
+.markdown-code-block .hljs-template-variable {
+  color: #f1fa8c;
+}
+
+.markdown-code-block .hljs-title,
+.markdown-code-block .hljs-title.class_,
+.markdown-code-block .hljs-title.class_.inherited__,
+.markdown-code-block .hljs-title.function_ {
+  color: #50fa7b;
+}
+
+.markdown-code-block .hljs-comment,
+.markdown-code-block .hljs-quote {
+  color: #6272a4;
+}
+
+.markdown-code-block .hljs-number,
+.markdown-code-block .hljs-symbol,
+.markdown-code-block .hljs-bullet {
+  color: #bd93f9;
 }
