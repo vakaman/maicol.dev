@@ -75,6 +75,45 @@ const homeMetadata = {
 
 const journeyEntries = [
   {
+    id: "maxper-informatica",
+    "pt-br": {
+      description:
+        "Primeiro contato mais profundo com tecnologia, ajudando em treinamentos e aulas em troca de aprendizado e mais tempo no computador.",
+      title: "Maxper Informática",
+    },
+    "us-en": {
+      description:
+        "A deeper first contact with technology, helping with training sessions and classes in exchange for learning and more time on the computer.",
+      title: "Maxper Informática",
+    },
+  },
+  {
+    id: "gp-informatica",
+    "pt-br": {
+      description:
+        "Experiência como instrutor de informática ensinando crianças, adultos e idosos, com foco em didática, atenção e engajamento.",
+      title: "GP Informática",
+    },
+    "us-en": {
+      description:
+        "Experience as a computer instructor teaching children, adults, and seniors, with a strong focus on communication, attention, and engagement.",
+      title: "GP Informática",
+    },
+  },
+  {
+    id: "lc-telecom",
+    "pt-br": {
+      description:
+        "Primeira experiência profissional com suporte técnico, vendas e criação de um sistema HTML com POST e GET para agendamentos operacionais.",
+      title: "L&C Telecom",
+    },
+    "us-en": {
+      description:
+        "First professional experience with technical support, sales, and the creation of an HTML system using POST and GET for operational scheduling.",
+      title: "L&C Telecom",
+    },
+  },
+  {
     id: "masternet-inicio",
     "pt-br": {
       description:

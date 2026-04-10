@@ -15,7 +15,8 @@ describe("site content", () => {
     expect(content.hero.name).toBe("");
     expect(content.hero.skills).toContain("Corrotinas");
     expect(content.experiences.items).toHaveLength(9);
-    expect(content.journey.entries[0]?.title).toBe("Masternet Telecom");
+    expect(content.journey.entries[0]?.title).toBe("Maxper Informática");
+    expect(content.journey.entries).toHaveLength(9);
     expect(content.contact.items.some((item) => item.slug === "website")).toBe(false);
     expect(content.contact.items.some((item) => item.slug === "github")).toBe(true);
   });
@@ -33,7 +34,8 @@ describe("site content", () => {
     expect(content.hero.name).toBe("");
     expect(content.hero.skills).toContain("Coroutines");
     expect(content.experiences.items).toHaveLength(9);
-    expect(content.journey.entries[0]?.title).toBe("Masternet Telecom");
+    expect(content.journey.entries[0]?.title).toBe("Maxper Informática");
+    expect(content.journey.entries).toHaveLength(9);
     expect(content.contact.items.some((item) => item.slug === "website")).toBe(false);
     expect(content.contact.items.some((item) => item.slug === "blog")).toBe(true);
   });

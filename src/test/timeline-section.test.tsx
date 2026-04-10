@@ -86,28 +86,28 @@ describe("timeline section", () => {
   it("reveals journey entries when they intersect the viewport", async () => {
     renderTimeline();
 
-    const firstEntry = screen.getByText("Masternet Telecom").closest("[data-entry-id]");
-    const secondEntry = screen.getByText("Dump Tecnologia").closest("[data-entry-id]");
+    const firstEntry = screen.getByText("Maxper Informática").closest("[data-entry-id]");
+    const secondEntry = screen.getByText("GP Informática").closest("[data-entry-id]");
 
     expect(firstEntry).toHaveAttribute("data-visible", "false");
     expect(secondEntry).toHaveAttribute("data-visible", "false");
 
     act(() => {
-      MockIntersectionObserver.instance?.reveal("masternet-inicio");
+      MockIntersectionObserver.instance?.reveal("gp-informatica");
+    });
+
+    await waitFor(() => {
+      expect(firstEntry).toHaveAttribute("data-visible", "false");
+    });
+
+    expect(secondEntry).toHaveAttribute("data-visible", "true");
+
+    act(() => {
+      MockIntersectionObserver.instance?.reveal("maxper-informatica");
     });
 
     await waitFor(() => {
       expect(firstEntry).toHaveAttribute("data-visible", "true");
-    });
-
-    expect(secondEntry).toHaveAttribute("data-visible", "false");
-
-    act(() => {
-      MockIntersectionObserver.instance?.reveal("dump-devops");
-    });
-
-    await waitFor(() => {
-      expect(secondEntry).toHaveAttribute("data-visible", "true");
     });
   });
 });

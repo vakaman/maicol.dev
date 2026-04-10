@@ -92,6 +92,24 @@ export const usEnMessages: LocaleMessages = {
       professional: "professional",
     },
     entries: {
+      "maxper-informatica": {
+        title: "Maxper Informática",
+        summary:
+          "A deeper first contact with technology, helping with training sessions and classes in exchange for learning and more time on the computer.",
+        skills: ["Computer Skills", "HTML", "CSS", "Teaching", "Commitment"],
+      },
+      "gp-informatica": {
+        title: "GP Informática",
+        summary:
+          "Experience as a computer instructor teaching children, adults, and seniors, with a strong focus on communication, attention, and engagement.",
+        skills: ["Teaching", "Communication", "Engagement", "Computer Skills", "Empathy"],
+      },
+      "lc-telecom": {
+        title: "L&C Telecom",
+        summary:
+          "Where it all started: technical support, sales, and the first HTML system using POST and GET to organize field operations.",
+        skills: ["HTML", "POST", "GET", "Technical Support", "Sales"],
+      },
       "masternet-inicio": {
         title: "Masternet Telecom",
         summary:

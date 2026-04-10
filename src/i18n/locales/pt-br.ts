@@ -92,6 +92,24 @@ export const ptBrMessages: LocaleMessages = {
       professional: "profissional",
     },
     entries: {
+      "maxper-informatica": {
+        title: "Maxper Informática",
+        summary:
+          "Primeiro contato mais profundo com tecnologia, ajudando em treinamentos e aulas em troca de aprendizado e mais tempo no computador.",
+        skills: ["Informática", "HTML", "CSS", "Didática", "Compromisso"],
+      },
+      "gp-informatica": {
+        title: "GP Informática",
+        summary:
+          "Experiência como instrutor de informática ensinando crianças, adultos e idosos, com foco em didática, atenção e engajamento.",
+        skills: ["Didática", "Comunicação", "Ensino", "Engajamento", "Informática"],
+      },
+      "lc-telecom": {
+        title: "L&C Telecom",
+        summary:
+          "Onde tudo começou: suporte técnico, vendas e o primeiro sistema em HTML com POST e GET para organizar a operação.",
+        skills: ["HTML", "POST", "GET", "Suporte Técnico", "Vendas"],
+      },
       "masternet-inicio": {
         title: "Masternet Telecom",
         summary:
