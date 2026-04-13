@@ -6,7 +6,9 @@ Quando fiz 16 anos, eu e um amigo saímos procurando emprego. Como ele tinha com
 
 Nós dois estávamos morrendo de vergonha, mas nos apresentamos mesmo assim. Explicamos que estávamos procurando uma oportunidade, e a atendente pediu para esperarmos o instrutor terminar a aula para conversar com a gente.
 
-Quando ele saiu da sala, eu me levantei e o cumprimentei com um aperto de mão firme. Meu amigo o cumprimentou ainda sentado. Naquele momento eu não fazia ideia, mas esse detalhe acabaria fazendo diferença na minha contratação. Deixamos nossos currículos ali e seguimos o resto do dia entregando currículos em outros lugares. No dia seguinte, recebi uma ligação da Adriana pedindo que eu fosse fazer um teste. Eu simplesmente não conseguia acreditar.
+Quando ele saiu da sala, eu me levantei e o cumprimentei com um aperto de mão firme. Meu amigo o cumprimentou ainda sentado. Naquele momento eu não fazia ideia, mas esse detalhe acabaria fazendo diferença na minha contratação. 
+
+Deixamos nossos currículos ali e seguimos o resto do dia entregando o restante em outros lugares. No dia seguinte, recebi uma ligação da Adriana pedindo que eu fosse fazer um teste. Eu simplesmente não conseguia acreditar.
 
 # O teste que virou aula
 
