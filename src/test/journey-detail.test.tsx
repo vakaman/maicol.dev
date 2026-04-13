@@ -87,6 +87,32 @@ describe("journey detail", () => {
     });
   });
 
+  it("scrolls to the top when the detail page opens", () => {
+    const scrollTo = vi.fn();
+    Object.defineProperty(window, "scrollTo", {
+      configurable: true,
+      value: scrollTo,
+      writable: true,
+    });
+    vi.mocked(getJourneyEntry).mockReturnValue({
+      detail: "Texto simples",
+      id: "masternet-inicio",
+      skills: ["PHP"],
+      summary: "Resumo",
+      title: "Masternet Telecom",
+      type: "professional",
+      typeLabel: "Profissional",
+      year: "2012",
+    });
+
+    renderJourneyDetail();
+
+    expect(scrollTo).toHaveBeenCalledWith({
+      top: 0,
+      behavior: "auto",
+    });
+  });
+
   it("renders markdown headings, separators, code blocks and mermaid diagrams", async () => {
     renderJourneyDetail();
 
@@ -109,17 +135,19 @@ describe("journey detail", () => {
     fireEvent.click(screen.getByRole("button", { name: "Code" }));
     expect(screen.getByText((content) => content.includes("flowchart TD") && content.includes("A[Inicio] --> B[Fim]"))).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Preview" }));
-    expect(mermaidInitializeMock).toHaveBeenCalledWith(
-      expect.objectContaining({
-        securityLevel: "strict",
-        startOnLoad: false,
-        theme: "dark",
-      }),
-    );
-    expect(mermaidRenderMock).toHaveBeenCalledWith(
-      expect.stringMatching(/^mermaid-/),
-      "flowchart TD\n  A[Inicio] --> B[Fim]",
-    );
+    await waitFor(() => {
+      expect(mermaidInitializeMock).toHaveBeenCalledWith(
+        expect.objectContaining({
+          securityLevel: "strict",
+          startOnLoad: false,
+          theme: "dark",
+        }),
+      );
+      expect(mermaidRenderMock).toHaveBeenCalledWith(
+        expect.stringMatching(/^mermaid-/),
+        "flowchart TD\n  A[Inicio] --> B[Fim]",
+      );
+    });
   });
 
   it("keeps language changes out of browser back history", async () => {

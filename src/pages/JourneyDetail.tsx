@@ -1,4 +1,4 @@
-import { isValidElement, type MouseEvent, type ReactNode } from "react";
+import { isValidElement, useEffect, type MouseEvent, type ReactNode } from "react";
 import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -52,6 +52,13 @@ const JourneyDetail = () => {
   const markdownPath = id ? `journey/${id}/detail/${locale}.md` : "";
   const navigationState = location.state as BackNavigationState | null;
   const homePath = getLocalizedPath(locale, "/");
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+  }, [location.pathname]);
 
   function handleBack(event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
