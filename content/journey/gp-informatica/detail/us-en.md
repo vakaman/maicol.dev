@@ -6,7 +6,9 @@ When I turned 16, a friend and I went out looking for work. Since he had a compu
 
 We were both very shy, but we introduced ourselves anyway. We explained that we were looking for an opportunity, and the receptionist asked us to wait until the instructor finished his class so he could speak with us.
 
-When he came out, I stood up and greeted him with a firm handshake. My friend greeted him while still seated. At the time, I had no idea, but that small detail would end up making a difference in my hiring. We left our resumes there and continued our mission of handing them out elsewhere. The next day, Adriana called and asked me to come in for a test. I could hardly believe it.
+When he came out, I stood up and greeted him with a firm handshake. My friend greeted him while still seated. At the time, I had no idea, but that small detail would end up making a difference in my hiring.
+
+We left our resumes there and continued our mission of handing them out elsewhere. The next day, Adriana called and asked me to come in for a test. I could hardly believe it.
 
 # The test that turned into a class
 
@@ -21,6 +23,7 @@ I left there jumping with joy. I could not contain how happy I was. I was hired,
 # Learning how to teach
 
 I worked there as a computer instructor, on and off, for about two years. I taught children, adults, and seniors. It was an incredible experience because I had to develop the maturity to understand that each group learns differently and needs a different kind of attention, communication, and guidance.
+
 It was in that environment that I received my first compliments. Some parents told me their children were loving the course and that the teacher helped a lot with engagement. I also heard that I knew how to teach well and had endless patience. At that moment, that kind of feedback meant a lot to me.
 
 I became friends with many students, and that period marked my life in a very special way. Honestly, I still miss that time.
