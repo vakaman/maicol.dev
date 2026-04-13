@@ -91,8 +91,8 @@ const experienceDefinitions = [
 ] as const;
 
 const timelineDefinitions = [
-  { id: "maxper-informatica", type: "professional", year: "2007" },
-  { id: "gp-informatica", type: "professional", year: "2010" },
+  { id: "maxper-informatica", type: "professional", year: "2005" },
+  { id: "gp-informatica", type: "professional", year: "2006" },
   { id: "lc-telecom", type: "professional", year: "2011" },
   { id: "masternet-inicio", type: "professional", year: "2012" },
   { id: "dump-devops", type: "professional", year: "2019" },
