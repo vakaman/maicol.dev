@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import { MemoryRouter, Route, Routes } from "react-router-dom";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import JourneyDetail from "@/pages/JourneyDetail";
@@ -27,8 +27,7 @@ const { getJourneyEntry } = await import("@/content/siteContent");
 
 function renderJourneyDetail() {
   return render(
-    <MemoryRouter
-      initialEntries={["/journey/masternet-inicio"]}
+    <BrowserRouter
       future={{
         v7_relativeSplatPath: true,
         v7_startTransition: true,
@@ -36,15 +35,21 @@ function renderJourneyDetail() {
     >
       <LocaleProvider>
         <Routes>
+          <Route path="/" element={<div>Home page</div>} />
+          <Route path="/pt-br" element={<div>Página inicial</div>} />
           <Route path="/journey/:id" element={<JourneyDetail />} />
+          <Route path="/pt-br/journey/:id" element={<JourneyDetail />} />
         </Routes>
       </LocaleProvider>
-    </MemoryRouter>,
+    </BrowserRouter>,
   );
 }
 
 describe("journey detail", () => {
   beforeEach(() => {
+    window.localStorage.clear();
+    window.history.replaceState(null, "", "/journey/masternet-inicio");
+
     mermaidInitializeMock.mockReset();
     mermaidRenderMock.mockReset();
     mermaidRenderMock.mockResolvedValue({
@@ -115,5 +120,28 @@ describe("journey detail", () => {
       expect.stringMatching(/^mermaid-/),
       "flowchart TD\n  A[Inicio] --> B[Fim]",
     );
+  });
+
+  it("keeps language changes out of browser back history", async () => {
+    window.history.pushState(null, "", "/");
+    window.history.pushState(null, "", "/journey/masternet-inicio");
+
+    renderJourneyDetail();
+
+    fireEvent.click(screen.getByTestId("locale-pt-br"));
+
+    await waitFor(() => {
+      expect(window.location.pathname).toBe("/pt-br/journey/masternet-inicio");
+    });
+
+    act(() => {
+      window.history.back();
+      window.dispatchEvent(new PopStateEvent("popstate"));
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText("Home page")).toBeInTheDocument();
+      expect(window.location.pathname).toBe("/");
+    });
   });
 });

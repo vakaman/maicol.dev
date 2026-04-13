@@ -54,7 +54,7 @@ export function LocaleProvider({ children }: PropsWithChildren) {
         pathname: nextPath,
         search: location.search,
       },
-      { replace: nextPath === location.pathname },
+      { replace: true },
     );
   }
 
