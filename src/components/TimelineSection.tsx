@@ -88,6 +88,9 @@ const TimelineSection = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2 text-foreground">
             {content.journey.title}
           </h2>
+          <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
+            {content.journey.description}
+          </p>
         </div>
 
         <div className="relative">

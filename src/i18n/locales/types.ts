@@ -17,11 +17,13 @@ export interface LocaleMessages {
   hero: {
     command: string;
     cta: string;
+    heading: string;
     name: string;
     role: string;
     skills: string[];
   };
   experiences: {
+    description: string;
     eyebrow: string;
     title: string;
     items: Record<
@@ -34,6 +36,7 @@ export interface LocaleMessages {
     >;
   };
   journey: {
+    description: string;
     eyebrow: string;
     notFound: string;
     readMore: string;

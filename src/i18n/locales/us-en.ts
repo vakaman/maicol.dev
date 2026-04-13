@@ -17,11 +17,14 @@ export const usEnMessages: LocaleMessages = {
   hero: {
     command: "whoami",
     cta: "scroll_down",
+    heading: "Backend Infrastructure and Distributed Systems",
     name: "",
-    role: "Backend Specialist | Kotlin | PHP | K8S | Python | Java | JavaScript | AWS",
+    role: "Backend Developer & Infrastructure Engineer",
     skills: ["Kotlin", "PHP", "Python", "Java", "JavaScript", "AWS", "K8S", "Coroutines"],
   },
   experiences: {
+    description:
+      "Hands-on experience across backend engineering, cloud infrastructure, networking, automation, observability, APIs, and quality practices for scalable systems.",
     eyebrow: "> skills.list()",
     title: "Areas of Expertise",
     items: {
@@ -82,6 +85,8 @@ export const usEnMessages: LocaleMessages = {
     },
   },
   journey: {
+    description:
+      "A professional journey spanning teaching, ISP operations, backend engineering, distributed systems, AWS platforms, identity, automation, and unit testing.",
     eyebrow: "> journey.history()",
     notFound: "404 - story not found",
     readMore: "read_more",

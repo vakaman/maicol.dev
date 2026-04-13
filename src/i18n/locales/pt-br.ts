@@ -17,11 +17,14 @@ export const ptBrMessages: LocaleMessages = {
   hero: {
     command: "whoami",
     cta: "scroll_down",
+    heading: "Backend, Infraestrutura e Sistemas Distribuídos",
     name: "",
-    role: "Backend Specialist | Kotlin | PHP | K8S | Python | Java | JavaScript | AWS",
+    role: "Backend Developer & Infrastructure Engineer",
     skills: ["Kotlin", "PHP", "Python", "Java", "JavaScript", "AWS", "K8S", "Corrotinas"],
   },
   experiences: {
+    description:
+      "Experiência prática em engenharia backend, infraestrutura em nuvem, redes, automação, observabilidade, APIs e qualidade para sistemas escaláveis.",
     eyebrow: "> skills.list()",
     title: "Áreas de Atuação",
     items: {
@@ -82,6 +85,8 @@ export const ptBrMessages: LocaleMessages = {
     },
   },
   journey: {
+    description:
+      "Uma jornada profissional entre ensino, operação de ISP, engenharia backend, sistemas distribuídos, plataformas AWS, identidade, automação e testes de unidade.",
     eyebrow: "> journey.history()",
     notFound: "404 - história não encontrada",
     readMore: "ler_mais",

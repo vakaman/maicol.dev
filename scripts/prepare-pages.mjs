@@ -13,14 +13,14 @@ const defaultImage = `${siteUrl}/favicon.ico`;
 const homeMetadata = {
   "pt-br": {
     description:
-      "Portfólio de backend, infraestrutura, redes, AWS e sistemas distribuídos de Maicol K. Oliveira.",
+      "Portfólio de Maicol K. Oliveira com experiência em backend, infraestrutura, redes, AWS, testes de unidade, automação e sistemas distribuídos para plataformas escaláveis.",
     htmlLang: "pt-BR",
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
         description:
-          "Portfólio de backend, infraestrutura, redes, AWS e sistemas distribuídos de Maicol K. Oliveira.",
+          "Portfólio de Maicol K. Oliveira com experiência em backend, infraestrutura, redes, AWS, testes de unidade, automação e sistemas distribuídos para plataformas escaláveis.",
         inLanguage: "pt-BR",
         name: "maicol.dev",
         url: `${siteUrl}/pt-br`,
@@ -38,19 +38,19 @@ const homeMetadata = {
         url: siteUrl,
       },
     ],
-    title: "maicol.dev | Backend, Infraestrutura e Sistemas Distribuídos",
+    title: "Backend, Infraestrutura e Sistemas Distribuídos",
     url: `${siteUrl}/pt-br`,
   },
   "us-en": {
     description:
-      "Portfolio of backend engineering, infrastructure, networking, AWS, and distributed systems by Maicol K. Oliveira.",
+      "Portfolio of Maicol K. Oliveira covering backend engineering, infrastructure, networking, AWS, unit testing, automation, and distributed systems for scalable platforms.",
     htmlLang: "en",
     jsonLd: [
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
         description:
-          "Portfolio of backend engineering, infrastructure, networking, AWS, and distributed systems by Maicol K. Oliveira.",
+          "Portfolio of Maicol K. Oliveira covering backend engineering, infrastructure, networking, AWS, unit testing, automation, and distributed systems for scalable platforms.",
         inLanguage: "en",
         name: "maicol.dev",
         url: siteUrl,
@@ -68,7 +68,7 @@ const homeMetadata = {
         url: siteUrl,
       },
     ],
-    title: "maicol.dev | Backend, Infrastructure, and Distributed Systems",
+    title: "Backend Infrastructure and Distributed Systems",
     url: siteUrl,
   },
 };
@@ -76,122 +76,214 @@ const homeMetadata = {
 const journeyEntries = [
   {
     id: "maxper-informatica",
+    year: "2005",
     "pt-br": {
       description:
         "Primeiro contato mais profundo com tecnologia, ajudando em treinamentos e aulas em troca de aprendizado e mais tempo no computador.",
       title: "Maxper Informática",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "A deeper first contact with technology, helping with training sessions and classes in exchange for learning and more time on the computer.",
       title: "Maxper Informática",
+      typeLabel: "professional",
     },
   },
   {
     id: "gp-informatica",
+    year: "2006",
     "pt-br": {
       description:
         "Experiência como instrutor de informática ensinando crianças, adultos e idosos, com foco em didática, atenção e engajamento.",
       title: "GP Informática",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "Experience as a computer instructor teaching children, adults, and seniors, with a strong focus on communication, attention, and engagement.",
       title: "GP Informática",
+      typeLabel: "professional",
     },
   },
   {
     id: "lc-telecom",
+    year: "2011",
     "pt-br": {
       description:
         "Primeira experiência profissional com suporte técnico, vendas e criação de um sistema HTML com POST e GET para agendamentos operacionais.",
       title: "L&C Telecom",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "First professional experience with technical support, sales, and the creation of an HTML system using POST and GET for operational scheduling.",
       title: "L&C Telecom",
+      typeLabel: "professional",
     },
   },
   {
     id: "masternet-inicio",
+    year: "2012",
     "pt-br": {
       description:
         "Início da carreira unindo ERP em PHP, automação, operação de rede de ISP e administração de infraestrutura crítica.",
       title: "Masternet Telecom",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "Career starting point across PHP ERP work, automation, ISP network operations, and critical infrastructure administration.",
       title: "Masternet Telecom",
+      typeLabel: "professional",
     },
   },
   {
     id: "dump-devops",
+    year: "2019",
     "pt-br": {
       description:
         "Consolidação como engenheiro sênior em backend e DevOps, com Laravel, Lumen, Docker, scraping e automação.",
       title: "Dump Tecnologia",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "Consolidation as a senior backend and DevOps engineer with Laravel, Lumen, Docker, scraping, and automation.",
       title: "Dump Tecnologia",
+      typeLabel: "professional",
     },
   },
   {
     id: "engenharia-software",
+    year: "2021",
     "pt-br": {
       description:
         "Formação acadêmica e trilha contínua de certificações para fortalecer arquitetura, qualidade e visão sistêmica.",
       title: "Engenharia de Software",
+      typeLabel: "pessoal",
     },
     "us-en": {
       description:
         "Academic foundation and continuous certification path to strengthen architecture, quality, and systems thinking.",
       title: "Software Engineering",
+      typeLabel: "personal",
     },
   },
   {
     id: "deliver-c6",
+    year: "2022",
     "pt-br": {
       description:
         "Atuação em arquitetura PHP, TEF, testes unitários, UML, EKS e serviços AWS em contexto financeiro.",
       title: "Deliver IT + C6 Bank",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "Work on PHP architecture, electronic funds transfer flows, unit testing, UML, EKS, and AWS services in a financial context.",
       title: "Deliver IT + C6 Bank",
+      typeLabel: "professional",
     },
   },
   {
     id: "sympla-senior",
+    year: "2023",
     "pt-br": {
       description:
         "Atuação multi-times em acesso, arquitetura, blockchain e data intelligence com foco em escala e eventos.",
       title: "Sympla | Senior Software Engineer",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "Cross-team work in access, architecture, blockchain, and data intelligence with scale and event-driven systems.",
       title: "Sympla | Senior Software Engineer",
+      typeLabel: "professional",
     },
   },
   {
     id: "sympla-specialist",
+    year: "2025",
     "pt-br": {
       description:
         "Maior foco em plataforma, Keycloak, KrakenD, corrotinas e desenvolvimento assistido por IA com ganho real de produtividade.",
       title: "Sympla | Backend Specialist",
+      typeLabel: "profissional",
     },
     "us-en": {
       description:
         "Stronger focus on platform decisions, Keycloak, KrakenD, coroutines, and AI-assisted development with measurable gains.",
       title: "Sympla | Backend Specialist",
+      typeLabel: "professional",
     },
   },
 ];
+
+const homeShellContent = {
+  "pt-br": {
+    contactTitle: "Contato e Links",
+    experiencesTitle: "Áreas de Atuação",
+    heading: "Backend, Infraestrutura e Sistemas Distribuídos",
+    intro: [
+      "Maicol K. Oliveira é um desenvolvedor backend e engenheiro de infraestrutura com atuação em sistemas escaláveis, plataformas em nuvem, redes, automação e entrega de software confiável.",
+      "Este portfólio destaca experiência com Kotlin, PHP, Python, Java, JavaScript, AWS, sistemas distribuídos, engenharia de plataforma, testes de unidade e observabilidade em projetos profissionais.",
+    ],
+    journeyTitle: "Jornada Profissional",
+    experienceParagraph:
+      "A atuação cobre arquitetura backend, APIs, processamento assíncrono, identidade e acesso, infraestrutura em nuvem, observabilidade, automação e práticas de qualidade para ambientes de produção.",
+    experienceItems: [
+      "Engenharia backend com Kotlin, PHP, Python, Java e JavaScript.",
+      "Sistemas distribuídos com mensageria, fluxos assíncronos e integrações resilientes.",
+      "AWS, Kubernetes, Terraform, Docker, redes, DNS e operação de infraestrutura.",
+      "Testes de unidade, arquitetura, automação e observabilidade.",
+    ],
+    journeyParagraphs: [
+      "A jornada reúne ensino, operação de ISP, engenharia backend, trabalho em plataforma e aprendizado contínuo. Começou com suporte técnico e redes, evoluiu para ERP e automação e depois avançou para sistemas distribuídos, serviços AWS, fluxos de identidade e qualidade de software.",
+      "Esses marcos mostram como a vivência prática em infraestrutura moldou uma base forte em backend, com atenção a confiabilidade, manutenção, testes de unidade e entrega em produção.",
+      "Cada etapa adiciona contexto sobre decisões de arquitetura, suporte em produção, desenho de integrações e evolução de plataforma, ajudando buscadores e visitantes a entenderem a profundidade da experiência.",
+    ],
+    contactParagraph:
+      'Perfis externos e publicações estão disponíveis no <a href="https://github.com/vakaman" rel="noopener noreferrer" target="_blank">GitHub</a>, <a href="https://www.linkedin.com/in/maicolkaiseroliveira" rel="noopener noreferrer" target="_blank">LinkedIn</a> e no <a href="https://blog.maicol.dev" rel="noopener noreferrer" target="_blank">blog</a>.',
+    nav: {
+      blog: "blog",
+      contact: "contato",
+      experiences: "experiências",
+      journey: "jornada",
+    },
+  },
+  "us-en": {
+    contactTitle: "Contact and Links",
+    experiencesTitle: "Areas of Expertise",
+    heading: "Backend Infrastructure and Distributed Systems",
+    intro: [
+      "Maicol K. Oliveira is a backend developer and infrastructure engineer focused on scalable systems, cloud platforms, networking, automation, and reliable software delivery.",
+      "This portfolio highlights experience with Kotlin, PHP, Python, Java, JavaScript, AWS, distributed systems, platform engineering, unit testing, and observability across professional projects.",
+    ],
+    journeyTitle: "Professional Journey",
+    experienceParagraph:
+      "The work spans backend architecture, APIs, asynchronous processing, identity and access, cloud infrastructure, observability, automation, and engineering quality practices for production systems.",
+    experienceItems: [
+      "Backend engineering with Kotlin, PHP, Python, Java, and JavaScript.",
+      "Distributed systems with messaging, asynchronous workflows, and resilient integrations.",
+      "AWS, Kubernetes, Terraform, Docker, networking, DNS, and infrastructure operations.",
+      "Unit testing, architecture refinement, automation, and observability.",
+    ],
+    journeyParagraphs: [
+      "The journey combines teaching, ISP operations, backend engineering, platform work, and continuous learning. It started with technical support and networking, evolved through ERP and automation, and later expanded into distributed systems, AWS services, identity flows, and software quality.",
+      "These milestones explain how practical infrastructure work shaped a strong backend mindset, with attention to reliability, maintainability, unit testing, and delivery in real production environments.",
+      "Each step adds context around architecture decisions, production support, integration design, and platform evolution, helping search engines and visitors understand the depth of experience behind backend, infrastructure, and distributed systems work.",
+    ],
+    contactParagraph:
+      'External profiles and publications are available on <a href="https://github.com/vakaman" rel="noopener noreferrer" target="_blank">GitHub</a>, <a href="https://www.linkedin.com/in/maicolkaiseroliveira" rel="noopener noreferrer" target="_blank">LinkedIn</a>, and the <a href="https://blog.maicol.dev" rel="noopener noreferrer" target="_blank">blog</a>.',
+    nav: {
+      blog: "blog",
+      contact: "contact",
+      experiences: "experiences",
+      journey: "journey",
+    },
+  },
+};
 
 function getLocalizedPath(locale, pathname) {
   if (locale === "pt-br") {
@@ -202,18 +294,118 @@ function getLocalizedPath(locale, pathname) {
 }
 
 function buildAlternates(pathname) {
+  const englishPath = getLocalizedPath("us-en", pathname);
   return [
-    { hrefLang: "en", url: `${siteUrl}${getLocalizedPath("us-en", pathname) === "/" ? "" : getLocalizedPath("us-en", pathname)}` },
+    { hrefLang: "en", url: `${siteUrl}${englishPath === "/" ? "" : englishPath}` },
     { hrefLang: "pt-BR", url: `${siteUrl}${getLocalizedPath("pt-br", pathname)}` },
-    { hrefLang: "x-default", url: `${siteUrl}${getLocalizedPath("us-en", pathname) === "/" ? "" : getLocalizedPath("us-en", pathname)}` },
+    { hrefLang: "x-default", url: `${siteUrl}${englishPath === "/" ? "" : englishPath}` },
   ];
+}
+
+function escapeHtml(value) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function buildHomeShell(locale) {
+  const content = homeShellContent[locale];
+  const journeyLinks = journeyEntries
+    .map((entry) => {
+      const localizedEntry = entry[locale];
+      return `<li><a href="${getLocalizedPath(locale, `/journey/${entry.id}`)}">${escapeHtml(localizedEntry.title)}</a></li>`;
+    })
+    .join("\n            ");
+
+  const experienceItems = content.experienceItems
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join("\n            ");
+
+  return `
+      <main>
+        <header>
+          <nav aria-label="Primary">
+            <a href="#experiences">${escapeHtml(content.nav.experiences)}</a>
+            <a href="#journey">${escapeHtml(content.nav.journey)}</a>
+            <a href="#contact">${escapeHtml(content.nav.contact)}</a>
+            <a href="https://blog.maicol.dev" rel="noopener noreferrer" target="_blank">${escapeHtml(content.nav.blog)}</a>
+          </nav>
+          <h1>${escapeHtml(content.heading)}</h1>
+          <p>${escapeHtml(content.intro[0])}</p>
+          <p>${escapeHtml(content.intro[1])}</p>
+        </header>
+
+        <section id="experiences">
+          <h2>${escapeHtml(content.experiencesTitle)}</h2>
+          <p>${escapeHtml(content.experienceParagraph)}</p>
+          <ul>
+            ${experienceItems}
+          </ul>
+        </section>
+
+        <section id="journey">
+          <h2>${escapeHtml(content.journeyTitle)}</h2>
+          <p>${escapeHtml(content.journeyParagraphs[0])}</p>
+          <p>${escapeHtml(content.journeyParagraphs[1])}</p>
+          <p>${escapeHtml(content.journeyParagraphs[2])}</p>
+          <ul>
+            ${journeyLinks}
+          </ul>
+        </section>
+
+        <section id="contact">
+          <h2>${escapeHtml(content.contactTitle)}</h2>
+          <p>${content.contactParagraph}</p>
+        </section>
+      </main>
+  `.trim();
+}
+
+function buildJourneyShell(locale, entry) {
+  const localizedEntry = entry[locale];
+  const backHref = getLocalizedPath(locale, "/");
+  const sectionTitle = locale === "pt-br" ? "Resumo da jornada" : "Journey summary";
+  const skillsTitle = locale === "pt-br" ? "Relevância para backend e infraestrutura" : "Why it matters for backend and infrastructure";
+  const closingParagraph =
+    locale === "pt-br"
+      ? "Esse marco reforça uma trajetória orientada a backend, infraestrutura, redes, automação, testes de unidade e sistemas distribuídos, conectando experiência prática com evolução contínua."
+      : "This milestone reinforces a journey focused on backend engineering, infrastructure, networking, automation, unit testing, and distributed systems, connecting hands-on work with continuous growth.";
+
+  return `
+      <main>
+        <nav aria-label="Breadcrumb">
+          <a href="${backHref}">maicol.dev</a>
+        </nav>
+        <article>
+          <header>
+            <p>${escapeHtml(entry.year)} · ${escapeHtml(localizedEntry.typeLabel)}</p>
+            <h1>${escapeHtml(localizedEntry.title)}</h1>
+          </header>
+
+          <section>
+            <h2>${escapeHtml(sectionTitle)}</h2>
+            <p>${escapeHtml(localizedEntry.description)}</p>
+            <p>${escapeHtml(closingParagraph)}</p>
+          </section>
+
+          <section>
+            <h2>${escapeHtml(skillsTitle)}</h2>
+            <p>${escapeHtml(closingParagraph)}</p>
+          </section>
+
+          <p><a href="${backHref}">${locale === "pt-br" ? "Voltar para a home" : "Back to home"}</a></p>
+        </article>
+      </main>
+  `.trim();
 }
 
 function injectMetadata(html, metadata) {
   const alternateLinks = metadata.alternates
     .map((alternate) => `<link rel="alternate" hreflang="${alternate.hrefLang}" href="${alternate.url}" />`)
     .join("\n    ");
-
   const jsonLd = JSON.stringify(metadata.jsonLd, null, 2);
 
   return html
@@ -237,12 +429,20 @@ function injectMetadata(html, metadata) {
     );
 }
 
-async function writeRouteHtml(routePath, metadata, baseHtml) {
+function injectSeoShell(html, shell) {
+  return html.replace(
+    /<!-- SEO_SHELL_START -->[\s\S]*?<!-- SEO_SHELL_END -->/,
+    `<!-- SEO_SHELL_START -->\n      ${shell.replace(/\n/g, "\n      ")}\n      <!-- SEO_SHELL_END -->`,
+  );
+}
+
+async function writeRouteHtml(routePath, metadata, shell, baseHtml) {
   const relativeRoute = routePath === "/" ? "" : routePath.replace(/^\//, "");
   const outputDir = relativeRoute ? path.join(distDir, relativeRoute) : distDir;
+  const localizedHtml = injectSeoShell(injectMetadata(baseHtml, metadata), shell);
 
   await mkdir(outputDir, { recursive: true });
-  await writeFile(path.join(outputDir, "index.html"), injectMetadata(baseHtml, metadata));
+  await writeFile(path.join(outputDir, "index.html"), localizedHtml);
 }
 
 function buildHomeRoute(locale) {
@@ -253,6 +453,7 @@ function buildHomeRoute(locale) {
     ...metadata,
     ogType: "website",
     routePath: getLocalizedPath(locale, "/"),
+    shell: buildHomeShell(locale),
   };
 }
 
@@ -300,6 +501,7 @@ function buildJourneyRoute(locale, entry) {
     ],
     ogType: "article",
     routePath: localizedPath,
+    shell: buildJourneyShell(locale, entry),
     title: `${localizedEntry.title} | maicol.dev`,
     url: `${siteUrl}${localizedPath}`,
   };
@@ -318,7 +520,7 @@ const routes = [
 ];
 
 for (const route of routes) {
-  await writeRouteHtml(route.routePath, route, baseHtml);
+  await writeRouteHtml(route.routePath, route, route.shell, baseHtml);
 }
 
 const sitemapEntries = routes

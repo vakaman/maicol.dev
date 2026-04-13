@@ -13,6 +13,9 @@ const ExperienceSection = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2 text-foreground">
             {content.experiences.title}
           </h2>
+          <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
+            {content.experiences.description}
+          </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {content.experiences.items.map((exp, index) => (

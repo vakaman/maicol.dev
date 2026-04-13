@@ -38,6 +38,7 @@ describe("index i18n", () => {
   it("renders in english by default", () => {
     renderIndex();
 
+    expect(screen.getByRole("heading", { level: 1, name: "Backend Infrastructure and Distributed Systems" })).toBeInTheDocument();
     expect(screen.getByText("Areas of Expertise")).toBeInTheDocument();
     expect(screen.getByText("My Journey")).toBeInTheDocument();
     expect(document.documentElement.lang).toBe("en");
@@ -48,6 +49,7 @@ describe("index i18n", () => {
 
     fireEvent.click(screen.getByTestId("locale-pt-br"));
 
+    expect(screen.getByRole("heading", { level: 1, name: "Backend, Infraestrutura e Sistemas Distribuídos" })).toBeInTheDocument();
     expect(screen.getByText("Áreas de Atuação")).toBeInTheDocument();
     expect(screen.getByText("Minha Jornada")).toBeInTheDocument();
     expect(screen.getByText("Vamos Conectar")).toBeInTheDocument();

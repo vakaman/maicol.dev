@@ -54,11 +54,13 @@ export interface SiteContent {
   hero: {
     command: string;
     cta: string;
+    heading: string;
     name: string;
     role: string;
     skills: string[];
   };
   journey: {
+    description: string;
     eyebrow: string;
     entries: TimelineEntryContent[];
     notFound: string;
@@ -72,6 +74,7 @@ export interface SiteContent {
     localeLabel: string;
   };
   experiences: {
+    description: string;
     eyebrow: string;
     items: ExperienceItemContent[];
     title: string;
@@ -180,11 +183,13 @@ export function getSiteContent(locale: Locale): SiteContent {
     hero: {
       command: copy.hero.command,
       cta: copy.hero.cta,
+      heading: copy.hero.heading,
       name: copy.hero.name,
       role: copy.hero.role,
       skills: copy.hero.skills,
     },
     experiences: {
+      description: copy.experiences.description,
       eyebrow: copy.experiences.eyebrow,
       items: experienceDefinitions.map((item) => ({
         description: copy.experiences.items[item.slug].description,
@@ -196,6 +201,7 @@ export function getSiteContent(locale: Locale): SiteContent {
       title: copy.experiences.title,
     },
     journey: {
+      description: copy.journey.description,
       eyebrow: copy.journey.eyebrow,
       entries: timelineDefinitions.map((item) => ({
         detail: getMarkdownContent(`journey/${item.id}/detail/${locale}.md`),

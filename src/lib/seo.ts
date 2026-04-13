@@ -35,14 +35,14 @@ function joinUrl(pathname: string): string {
 
 function getHomeDescription(locale: Locale): string {
   return locale === "pt-br"
-    ? "Portfólio de backend, infraestrutura, redes, AWS e sistemas distribuídos de Maicol K. Oliveira."
-    : "Portfolio of backend engineering, infrastructure, networking, AWS, and distributed systems by Maicol K. Oliveira.";
+    ? "Portfólio de Maicol K. Oliveira com experiência em backend, infraestrutura, redes, AWS, testes de unidade, automação e sistemas distribuídos para plataformas escaláveis."
+    : "Portfolio of Maicol K. Oliveira covering backend engineering, infrastructure, networking, AWS, unit testing, automation, and distributed systems for scalable platforms.";
 }
 
 function getHomeTitle(locale: Locale): string {
   return locale === "pt-br"
-    ? "maicol.dev | Backend, Infraestrutura e Sistemas Distribuídos"
-    : "maicol.dev | Backend, Infrastructure, and Distributed Systems";
+    ? "Backend, Infraestrutura e Sistemas Distribuídos"
+    : "Backend Infrastructure and Distributed Systems";
 }
 
 function getAlternateLinks(pathname: string): AlternateLink[] {

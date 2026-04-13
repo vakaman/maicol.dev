@@ -45,7 +45,7 @@ const HeroSection = () => {
           <span className="text-primary">$</span> {content.hero.command}
         </div>
         <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 text-foreground">
-          {content.hero.name}
+          {content.hero.heading}
         </h1>
         <p className="text-xl md:text-2xl font-mono text-muted-foreground mb-8 min-h-[2em]">
           {displayText}

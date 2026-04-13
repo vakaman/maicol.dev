@@ -23,8 +23,9 @@ describe("seo metadata", () => {
   it("builds localized metadata for the home page", () => {
     const metadata = getHomeMetadata("pt-br");
 
-    expect(metadata.title).toContain("Infraestrutura");
+    expect(metadata.title).toBe("Backend, Infraestrutura e Sistemas Distribuídos");
     expect(metadata.canonical).toBe("https://maicol.dev/pt-br");
+    expect(metadata.description).toContain("testes de unidade");
     expect(metadata.alternates).toEqual(
       expect.arrayContaining([
         { href: "https://maicol.dev", hrefLang: "en" },
