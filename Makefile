@@ -7,7 +7,7 @@ install:
 
 up:
 	@if [ ! -d node_modules ]; then npm install; fi
-	npm run dev -- --host 0.0.0.0 --port 8080
+	npm run dev -- --host 0.0.0.0 --port 8069
 
 build:
 	npm run build
