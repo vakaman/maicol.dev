@@ -5,25 +5,44 @@ const MatrixRain = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      return;
+    }
+
     const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (!ctx) {
+      return;
+    }
+
+    const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+    let drops: number[] = [];
+    let fontSize = 14;
+
+    const createDrops = () => {
+      const columns = Math.max(1, Math.floor(canvas.width / fontSize));
+
+      drops = Array.from({ length: columns }, () => Math.random() * -100);
+    };
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const devicePixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      const nextFontSize = window.innerWidth < 640 ? 12 : 14;
+
+      fontSize = nextFontSize;
+      canvas.width = window.innerWidth * devicePixelRatio;
+      canvas.height = window.innerHeight * devicePixelRatio;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+      createDrops();
     };
+
     resize();
     window.addEventListener("resize", resize);
 
-    const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
-    const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops: number[] = Array(columns).fill(1).map(() => Math.random() * -100);
-
     const draw = () => {
       ctx.fillStyle = "rgba(18, 18, 18, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
       ctx.fillStyle = "hsl(120, 100%, 40%)";
       ctx.font = `${fontSize}px monospace`;
 
@@ -49,7 +68,7 @@ const MatrixRain = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none opacity-30"
+      className="fixed inset-0 pointer-events-none opacity-20 sm:opacity-30"
       style={{ zIndex: 0 }}
     />
   );

@@ -62,11 +62,11 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto flex min-h-14 items-center justify-between px-4 sm:px-6">
         <button
           type="button"
           onClick={handleBrandClick}
-          className="font-heading font-bold text-foreground text-sm tracking-wider"
+          className="shrink-0 text-left font-heading text-xs font-bold tracking-[0.24em] text-foreground sm:text-sm"
         >
           <span className="text-primary">{">"}</span> {content.navbar.brand}
         </button>
@@ -110,25 +110,35 @@ const Navbar = () => {
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="md:hidden text-muted-foreground hover:text-primary transition-colors"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          className="md:hidden rounded-sm border border-border/80 bg-card/70 p-2 text-muted-foreground transition-colors hover:text-primary"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
       {open && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-b border-border px-6 py-4 space-y-3">
+        <div
+          id="mobile-navigation"
+          className="md:hidden border-b border-border bg-background/95 px-4 py-4 backdrop-blur-md sm:px-6"
+        >
+          <div className="space-y-2">
           {content.navbar.links.map((link) => (
             <button
               key={link.href}
               type="button"
               onClick={() => handleNavLinkClick(link.href)}
-              className="block font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="block w-full rounded-sm border border-border/60 bg-card/50 px-3 py-3 text-left font-mono text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary"
             >
               {link.label}
             </button>
           ))}
-          <div className="flex items-center gap-2 pt-2">
-            <span className="font-mono text-xs text-muted-foreground">{content.navbar.localeLabel}</span>
+          </div>
+          <div className="mt-4 flex flex-wrap items-center gap-2 border-t border-border/60 pt-4">
+            <span className="w-full font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              {content.navbar.localeLabel}
+            </span>
             <button
               type="button"
               data-testid="mobile-locale-pt-br"

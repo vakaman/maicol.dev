@@ -18,6 +18,12 @@ Object.defineProperty(HTMLCanvasElement.prototype, "getContext", {
   value: () => null,
 });
 
+Object.defineProperty(Element.prototype, "scrollIntoView", {
+  configurable: true,
+  writable: true,
+  value: () => {},
+});
+
 class MockIntersectionObserver {
   observe() {}
   unobserve() {}

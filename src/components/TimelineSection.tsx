@@ -79,23 +79,23 @@ const TimelineSection = () => {
   }, [content.journey.entries]);
 
   return (
-    <section id="journey" className="relative z-10 py-24 px-6 scroll-mt-20">
+    <section id="journey" className="relative z-10 scroll-mt-20 px-4 py-20 sm:px-6 sm:py-24">
       <div className="max-w-4xl mx-auto">
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <span className="font-mono text-sm text-primary tracking-wider">
             {content.journey.eyebrow}
           </span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2 text-foreground">
+          <h2 className="mt-2 text-2xl font-heading font-bold text-foreground sm:text-3xl md:text-4xl">
             {content.journey.title}
           </h2>
-          <p className="mt-4 max-w-3xl text-muted-foreground leading-relaxed">
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground sm:text-base">
             {content.journey.description}
           </p>
         </div>
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent" />
+          <div className="absolute bottom-0 left-3 top-0 w-px bg-gradient-to-b from-primary/60 via-primary/20 to-transparent sm:left-4 md:left-1/2" />
 
           {content.journey.entries.map((entry, index) => {
             const isLeft = index % 2 === 0;
@@ -117,30 +117,32 @@ const TimelineSection = () => {
                 }`}
               >
                 {/* Dot */}
-                <div className={`absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-primary shadow-[0_0_12px_hsl(120,100%,40%,0.6)] -translate-x-1/2 mt-6 z-10 transition-all duration-700 ${isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"}`} />
+                <div className={`absolute left-3 mt-5 h-3 w-3 -translate-x-1/2 rounded-full bg-primary shadow-[0_0_12px_hsl(120,100%,40%,0.6)] transition-all duration-700 sm:left-4 md:left-1/2 md:mt-6 ${isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"}`} />
 
                 {/* Content */}
                 <div
-                  className={`ml-12 md:ml-0 md:w-1/2 ${
+                  className={`ml-8 w-full sm:ml-12 md:ml-0 md:w-1/2 ${
                     isLeft ? "md:pr-12 md:text-right" : "md:pl-12"
                   }`}
                 >
-                  <span className="font-mono text-xs text-primary tracking-wider">
-                    {entry.year}
-                  </span>
-                  <span
-                    className={`ml-2 text-xs font-mono px-2 py-0.5 rounded-sm ${
+                  <div className={`flex flex-wrap items-center gap-2 ${isLeft ? "md:justify-end" : ""}`}>
+                    <span className="font-mono text-xs tracking-wider text-primary">
+                      {entry.year}
+                    </span>
+                    <span
+                      className={`rounded-sm px-2 py-0.5 text-xs font-mono ${
                       entry.type === "professional"
                         ? "bg-primary/10 text-primary"
                         : "bg-secondary text-secondary-foreground"
-                    }`}
-                  >
-                    {entry.typeLabel}
-                  </span>
-                  <h3 className="text-lg font-heading font-semibold text-foreground mt-2">
+                      }`}
+                    >
+                      {entry.typeLabel}
+                    </span>
+                  </div>
+                  <h3 className="mt-2 text-base font-heading font-semibold text-foreground sm:text-lg">
                     {entry.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {entry.summary}
                   </p>
                   <Link
