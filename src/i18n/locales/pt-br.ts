@@ -115,7 +115,7 @@ export const ptBrMessages: LocaleMessages = {
           "Onde tudo começou: suporte técnico, vendas e o primeiro sistema em HTML com POST e GET para organizar a operação.",
         skills: ["HTML", "POST", "GET", "Suporte Técnico", "Vendas"],
       },
-      "masternet-inicio": {
+      masternet: {
         title: "Masternet Telecom",
         summary:
           "Início da carreira unindo ERP em PHP, automação, operação de rede de ISP e administração de infraestrutura crítica.",

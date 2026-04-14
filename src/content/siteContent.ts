@@ -97,7 +97,7 @@ const timelineDefinitions = [
   { id: "maxper-informatica", type: "professional", year: "2005" },
   { id: "gp-informatica", type: "professional", year: "2006" },
   { id: "lc-telecom", type: "professional", year: "2011" },
-  { id: "masternet-inicio", type: "professional", year: "2012" },
+  { id: "masternet", type: "professional", year: "2012" },
   { id: "dump-devops", type: "professional", year: "2019" },
   { id: "engenharia-software", type: "personal", year: "2021" },
   { id: "deliver-c6", type: "professional", year: "2022" },

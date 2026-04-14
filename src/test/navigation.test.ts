@@ -11,7 +11,7 @@ describe("navigateToPreviousContext", () => {
 
     navigateToPreviousContext(navigate, {
       returnTo: {
-        entryId: "masternet-inicio",
+        entryId: "masternet",
         pathname: "/",
         scrollY: 640,
       },
@@ -19,7 +19,7 @@ describe("navigateToPreviousContext", () => {
 
     expect(navigate).toHaveBeenCalledWith("/", {
       state: {
-        restoreEntryId: "masternet-inicio",
+        restoreEntryId: "masternet",
         restoreScrollY: 640,
       },
     });

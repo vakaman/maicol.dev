@@ -115,7 +115,7 @@ export const usEnMessages: LocaleMessages = {
           "Where it all started: technical support, sales, and the first HTML system using POST and GET to organize field operations.",
         skills: ["HTML", "POST", "GET", "Technical Support", "Sales"],
       },
-      "masternet-inicio": {
+      masternet: {
         title: "Masternet Telecom",
         summary:
           "Career starting point across PHP ERP work, automation, ISP network operations, and critical infrastructure administration.",

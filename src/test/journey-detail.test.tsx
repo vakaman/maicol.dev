@@ -48,7 +48,7 @@ function renderJourneyDetail() {
 describe("journey detail", () => {
   beforeEach(() => {
     window.localStorage.clear();
-    window.history.replaceState(null, "", "/journey/masternet-inicio");
+    window.history.replaceState(null, "", "/journey/masternet");
 
     mermaidInitializeMock.mockReset();
     mermaidRenderMock.mockReset();
@@ -77,7 +77,7 @@ describe("journey detail", () => {
         "",
         "Texto final.",
       ].join("\n"),
-      id: "masternet-inicio",
+      id: "masternet",
       skills: ["PHP"],
       summary: "Resumo",
       title: "Masternet Telecom",
@@ -96,7 +96,7 @@ describe("journey detail", () => {
     });
     vi.mocked(getJourneyEntry).mockReturnValue({
       detail: "Texto simples",
-      id: "masternet-inicio",
+      id: "masternet",
       skills: ["PHP"],
       summary: "Resumo",
       title: "Masternet Telecom",
@@ -133,7 +133,9 @@ describe("journey detail", () => {
     expect(await screen.findByRole("img", { name: "Mermaid diagram" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Preview" })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Code" }));
-    expect(screen.getByText((content) => content.includes("flowchart TD") && content.includes("A[Inicio] --> B[Fim]"))).toBeInTheDocument();
+    expect(
+      screen.getByText((content) => content.includes("flowchart TD") && content.includes("A[Inicio] --> B[Fim]")),
+    ).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Preview" }));
     await waitFor(() => {
       expect(mermaidInitializeMock).toHaveBeenCalledWith(
@@ -152,14 +154,14 @@ describe("journey detail", () => {
 
   it("keeps language changes out of browser back history", async () => {
     window.history.pushState(null, "", "/");
-    window.history.pushState(null, "", "/journey/masternet-inicio");
+    window.history.pushState(null, "", "/journey/masternet");
 
     renderJourneyDetail();
 
     fireEvent.click(screen.getByTestId("locale-pt-br"));
 
     await waitFor(() => {
-      expect(window.location.pathname).toBe("/pt-br/journey/masternet-inicio");
+      expect(window.location.pathname).toBe("/pt-br/journey/masternet");
     });
 
     act(() => {

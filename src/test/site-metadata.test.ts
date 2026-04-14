@@ -12,7 +12,7 @@ describe("site metadata", () => {
     expect(indexHtml).toContain('rel="canonical" href="https://maicol.dev"');
     expect(indexHtml).toContain('hreflang="pt-BR" href="https://maicol.dev/pt-br"');
     expect(indexHtml).toContain("<h1>Backend Infrastructure and Distributed Systems</h1>");
-    expect(indexHtml).toContain('href="/journey/masternet-inicio"');
+    expect(indexHtml).toContain('href="/journey/masternet"');
     expect(indexHtml).toContain('rel="apple-touch-icon" href="/favicon.ico"');
     expect(indexHtml).not.toMatch(legacyBrandPattern);
   });

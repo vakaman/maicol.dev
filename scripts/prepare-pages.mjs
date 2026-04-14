@@ -123,7 +123,7 @@ const journeyEntries = [
     },
   },
   {
-    id: "masternet-inicio",
+    id: "masternet",
     year: "2012",
     "pt-br": {
       description:
