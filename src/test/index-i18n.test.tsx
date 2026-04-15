@@ -41,6 +41,7 @@ describe("index i18n", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Backend Infrastructure and Distributed Systems" })).toBeInTheDocument();
     expect(screen.getByText("Areas of Expertise")).toBeInTheDocument();
     expect(screen.getByText("My Journey")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /resume/i })).toHaveAttribute("href", "/maicol-kaiser-oliveira-resume.pdf");
     expect(document.documentElement.lang).toBe("en");
   });
 
@@ -53,6 +54,7 @@ describe("index i18n", () => {
     expect(screen.getByText("Áreas de Atuação")).toBeInTheDocument();
     expect(screen.getByText("Minha Jornada")).toBeInTheDocument();
     expect(screen.getByText("Vamos Conectar")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /currículo/i })).toHaveAttribute("href", "/maicol-kaiser-oliveira-resume.pdf");
     expect(document.documentElement.lang).toBe("pt-BR");
     expect(screen.getByTestId("location-pathname")).toHaveTextContent("/pt-br");
   });

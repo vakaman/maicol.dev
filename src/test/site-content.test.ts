@@ -22,6 +22,11 @@ describe("site content", () => {
     expect(content.journey.entries).toHaveLength(9);
     expect(content.contact.items.some((item) => item.slug === "website")).toBe(false);
     expect(content.contact.items.some((item) => item.slug === "github")).toBe(true);
+    expect(content.contact.items.find((item) => item.slug === "resume")).toMatchObject({
+      download: true,
+      href: "/maicol-kaiser-oliveira-resume.pdf",
+      label: "Currículo",
+    });
   });
 
   it("loads english content from typed locale dictionaries", () => {
@@ -44,5 +49,10 @@ describe("site content", () => {
     expect(content.journey.entries).toHaveLength(9);
     expect(content.contact.items.some((item) => item.slug === "website")).toBe(false);
     expect(content.contact.items.some((item) => item.slug === "blog")).toBe(true);
+    expect(content.contact.items.find((item) => item.slug === "resume")).toMatchObject({
+      download: true,
+      href: "/maicol-kaiser-oliveira-resume.pdf",
+      label: "Resume",
+    });
   });
 });

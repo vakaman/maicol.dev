@@ -164,6 +164,7 @@ export const usEnMessages: LocaleMessages = {
       blog: { label: "Blog" },
       instagram: { label: "Instagram" },
       linkedin: { label: "LinkedIn" },
+      resume: { label: "Resume" },
       stackoverflow: { label: "Stack Overflow" },
       x: { label: "X" },
     },

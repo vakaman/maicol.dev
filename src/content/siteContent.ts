@@ -1,4 +1,4 @@
-import { BookText, Cloud, Github, Globe, Instagram, Linkedin, Mail, Network, Server, Shield, Terminal, Trophy, Twitter, Workflow, type LucideIcon } from "lucide-react";
+import { BookText, Cloud, FileDown, Github, Globe, Instagram, Linkedin, Mail, Network, Server, Shield, Terminal, Trophy, Twitter, Workflow, type LucideIcon } from "lucide-react";
 import { getMarkdownContent } from "@/lib/content";
 import type { Locale } from "@/contexts/LocaleContext";
 import { messages } from "@/i18n/messages";
@@ -30,9 +30,18 @@ export interface TimelineEntryContent {
 }
 
 export interface ContactItemContent {
+  download?: boolean;
   href: string;
   icon: LucideIcon;
   label: string;
+  slug: string;
+  username: string;
+}
+
+interface ContactDefinition {
+  download?: boolean;
+  href: string;
+  icon: LucideIcon;
   slug: string;
   username: string;
 }
@@ -105,7 +114,7 @@ const timelineDefinitions = [
   { id: "sympla-specialist", type: "professional", year: "2025" },
 ] as const;
 
-const contactDefinitions = [
+const contactDefinitions: readonly ContactDefinition[] = [
   {
     href: "https://github.com/vakaman",
     icon: Github,
@@ -147,6 +156,13 @@ const contactDefinitions = [
     icon: BookText,
     slug: "blog",
     username: "blog.maicol.dev",
+  },
+  {
+    href: "/maicol-kaiser-oliveira-resume.pdf",
+    icon: FileDown,
+    slug: "resume",
+    username: "maicol-kaiser-oliveira-resume.pdf",
+    download: true,
   },
 ] as const;
 
@@ -227,6 +243,7 @@ export function getSiteContent(locale: Locale): SiteContent {
         label: copy.contact.items[item.slug].label,
         slug: item.slug,
         username: item.username,
+        download: item.download,
       })),
       title: copy.contact.title,
     },
