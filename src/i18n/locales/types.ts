@@ -59,6 +59,7 @@ export interface LocaleMessages {
     items: Record<
       string,
       {
+        download?: boolean;
         label: string;
       }
     >;
