@@ -31,7 +31,7 @@ describe("mobile layout", () => {
   it("uses mobile-first spacing and typography on the landing sections", () => {
     renderIndex();
 
-    expect(screen.getByRole("heading", { level: 1 })).toHaveClass("text-3xl", "sm:text-5xl", "md:text-7xl");
+    expect(screen.getByRole("heading", { level: 1 })).toHaveClass("text-2xl", "sm:text-4xl", "md:text-6xl");
     expect(document.getElementById("experiences")).toHaveClass("px-4", "py-20", "sm:px-6");
     expect(document.getElementById("journey")).toHaveClass("px-4", "py-20", "sm:px-6");
     expect(document.getElementById("contact")).toHaveClass("px-4", "py-20", "sm:px-6");

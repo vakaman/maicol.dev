@@ -24,21 +24,21 @@ export const ptBrMessages: LocaleMessages = {
   },
   experiences: {
     description:
-      "Experiência prática em engenharia backend, infraestrutura em nuvem, redes, automação, observabilidade, APIs e qualidade para sistemas escaláveis.",
+      "Experiência prática em backend, sistemas distribuídos, infraestrutura, integrações e fundamentos de IA aplicada com foco em implementação objetiva.",
     eyebrow: "> skills.list()",
     title: "Áreas de Atuação",
     items: {
       backend_specialist: {
         title: "Backend Specialist",
         description:
-          "Desenvolvimento e evolução de sistemas backend com Kotlin, PHP, Python, Java e JavaScript, com foco em domínio, integração e qualidade de código.",
+          "Desenvolvimento e evolução de sistemas backend com Kotlin, PHP, Python, Java e JavaScript, com foco em APIs, contexto de negócio e código sustentável.",
         tags: ["Kotlin", "PHP", "Python", "Java", "JavaScript"],
       },
       distributed_systems: {
         title: "Sistemas Distribuídos",
         description:
-          "Experiência com microsserviços, mensageria e processamento assíncrono usando SQS, SNS, Kafka, DMS, WebFlux e corrotinas.",
-        tags: ["Corrotinas", "SQS", "SNS", "Kafka", "WebFlux"],
+          "Experiência com microsserviços, mensageria e processamento assíncrono usando filas, eventos e concorrência controlada em fluxos distribuídos.",
+        tags: ["Assíncrono", "SQS", "SNS", "Kafka", "Corrotinas"],
       },
       identity_and_access: {
         title: "Identity & Access",
@@ -61,26 +61,26 @@ export const ptBrMessages: LocaleMessages = {
       agentic_engineering: {
         title: "Agentic Engineering",
         description:
-          "Uso disciplinado de IA no ciclo de desenvolvimento com specifications, PRDs, Rules, Skills e foco em produtividade com testes de unidade.",
-        tags: ["Codex", "Claude Code", "PRD", "Rules", "Teste de unidade"],
+          "Aplicação prática de LLMs locais, tool calling, system prompts, skills, LangChain e harness para construir fluxos assistidos por IA sem perder previsibilidade.",
+        tags: ["Ollama", "LangChain", "Tool Calling", "System Prompt", "Harness"],
       },
       api_and_integrations: {
         title: "APIs & Integrações",
         description:
-          "Desenvolvimento de integrações REST, fluxos orientados a eventos, evolução de APIs públicas e comunicação com sistemas legados e parceiros.",
-        tags: ["REST", "OAuth 2.0", "SQS", "Kafka", "Legacy"],
+          "Desenvolvimento de integrações REST, chamadas entre serviços, function calling, MCP e contratos claros para comunicação com parceiros e sistemas legados.",
+        tags: ["REST", "MCP", "JSON Schema", "Function Calling", "Legacy"],
       },
       testing_and_quality: {
         title: "Testes & Qualidade",
         description:
-          "Prática constante com testes de unidade, cobertura de fluxos críticos, refino de arquitetura e aplicação de padrões como SOLID, DRY e circuit breaker.",
-        tags: ["Teste de unidade", "PHPUnit", "JUnit", "SOLID", "Circuit Breaker"],
+          "Prática constante com testes de unidade, cobertura de fluxos críticos, contratos estruturados e arquitetura simples para reduzir ambiguidade operacional.",
+        tags: ["Teste de unidade", "PHPUnit", "JUnit", "Schema", "SOLID"],
       },
       automation_and_observability: {
         title: "Automação & Observabilidade",
         description:
-          "Automação operacional com Ansible e CI/CD, além de monitoração com Datadog, Zabbix, Graylog e Grafana para ambientes distribuídos.",
-        tags: ["Ansible", "GitHub Actions", "Datadog", "Zabbix", "Grafana"],
+          "Automação operacional com CI/CD e rotinas de suporte ao desenvolvimento, além de monitoração de ambientes distribuídos e serviços em produção.",
+        tags: ["Ansible", "GitHub Actions", "Datadog", "Grafana", "Docker"],
       },
     },
   },

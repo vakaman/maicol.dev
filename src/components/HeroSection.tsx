@@ -44,7 +44,7 @@ const HeroSection = () => {
         <div className="mb-4 font-mono text-xs uppercase tracking-[0.32em] text-muted-foreground sm:text-sm">
           <span className="text-primary">$</span> {content.hero.command}
         </div>
-        <h1 className="mb-6 text-3xl font-heading font-bold leading-tight text-foreground sm:text-5xl md:text-7xl">
+        <h1 className="mb-6 text-2xl font-heading font-bold leading-tight text-foreground sm:text-4xl md:text-6xl">
           {content.hero.heading}
         </h1>
         <p className="mb-8 min-h-[3.5rem] px-2 font-mono text-base leading-relaxed text-muted-foreground sm:min-h-[2.5em] sm:px-0 sm:text-xl md:text-2xl">
