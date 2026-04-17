@@ -16,6 +16,19 @@ vi.mock("@/content/siteContent", async () => {
   };
 });
 
+vi.mock("@/lib/content", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/content")>("@/lib/content");
+
+  return {
+    ...actual,
+    loadMarkdownContent: vi.fn(),
+  };
+});
+
+vi.mock("@/lib/loading-indicator", () => ({
+  hideJourneyNavigationLoader: vi.fn(),
+}));
+
 vi.mock("mermaid", () => ({
   default: {
     initialize: mermaidInitializeMock,
@@ -24,6 +37,8 @@ vi.mock("mermaid", () => ({
 }));
 
 const { getJourneyEntry } = await import("@/content/siteContent");
+const { loadMarkdownContent } = await import("@/lib/content");
+const { hideJourneyNavigationLoader } = await import("@/lib/loading-indicator");
 
 function renderJourneyDetail() {
   return render(
@@ -47,36 +62,18 @@ function renderJourneyDetail() {
 
 describe("journey detail", () => {
   beforeEach(() => {
+    vi.useRealTimers();
     window.localStorage.clear();
     window.history.replaceState(null, "", "/journey/masternet");
 
     mermaidInitializeMock.mockReset();
     mermaidRenderMock.mockReset();
+    vi.mocked(hideJourneyNavigationLoader).mockReset();
     mermaidRenderMock.mockResolvedValue({
       svg: "<svg><title>Matrix Diagram</title><text>diagram ok</text></svg>",
     });
 
     vi.mocked(getJourneyEntry).mockReturnValue({
-      detail: [
-        "# Titulo grande",
-        "## Titulo menor",
-        "### Menor ainda",
-        "",
-        "```mermaid",
-        "flowchart TD",
-        "  A[Inicio] --> B[Fim]",
-        "```",
-        "",
-        "```php",
-        "echo 'matrix';",
-        "```",
-        "",
-        "![Arquitetura](https://example.com/matrix.png \"Fluxo principal\")",
-        "",
-        "---",
-        "",
-        "Texto final.",
-      ].join("\n"),
       id: "masternet",
       skills: ["PHP"],
       summary: "Resumo",
@@ -85,6 +82,26 @@ describe("journey detail", () => {
       typeLabel: "Profissional",
       year: "2012",
     });
+    vi.mocked(loadMarkdownContent).mockResolvedValue([
+      "# Titulo grande",
+      "## Titulo menor",
+      "### Menor ainda",
+      "",
+      "```mermaid",
+      "flowchart TD",
+      "  A[Inicio] --> B[Fim]",
+      "```",
+      "",
+      "```php",
+      "echo 'matrix';",
+      "```",
+      "",
+      "![Arquitetura](https://example.com/matrix.png \"Fluxo principal\")",
+      "",
+      "---",
+      "",
+      "Texto final.",
+    ].join("\n"));
   });
 
   it("scrolls to the top when the detail page opens", () => {
@@ -95,7 +112,6 @@ describe("journey detail", () => {
       writable: true,
     });
     vi.mocked(getJourneyEntry).mockReturnValue({
-      detail: "Texto simples",
       id: "masternet",
       skills: ["PHP"],
       summary: "Resumo",
@@ -119,9 +135,9 @@ describe("journey detail", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Masternet Telecom" })).toBeInTheDocument();
     expect(screen.getByTestId("locale-pt-br")).toBeInTheDocument();
     expect(screen.getByTestId("locale-us-en")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 1, name: "Titulo grande" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 2, name: "Titulo menor" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 3, name: "Menor ainda" })).toBeInTheDocument();
+    expect(await screen.findByRole("heading", { level: 2, name: "Titulo grande" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Titulo menor" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 4, name: "Menor ainda" })).toBeInTheDocument();
     const phpCodeBlock = document.querySelector("code[data-language='php']");
     expect(phpCodeBlock).toBeInTheDocument();
     expect(phpCodeBlock).toHaveTextContent("echo 'matrix';");
@@ -150,6 +166,27 @@ describe("journey detail", () => {
         "flowchart TD\n  A[Inicio] --> B[Fim]",
       );
     });
+    expect(hideJourneyNavigationLoader).toHaveBeenCalledTimes(1);
+  });
+
+  it("hides the strategic navigation loader after the markdown resolves", async () => {
+    renderJourneyDetail();
+
+    await screen.findByRole("heading", { level: 2, name: "Titulo grande" });
+
+    expect(hideJourneyNavigationLoader).toHaveBeenCalledTimes(1);
+  });
+
+  it("hides the strategic navigation loader when loading fails", async () => {
+    vi.mocked(loadMarkdownContent).mockRejectedValueOnce(new Error("load failed"));
+
+    renderJourneyDetail();
+
+    await waitFor(() => {
+      expect(screen.getByText("404 - story not found")).toBeInTheDocument();
+    });
+
+    expect(hideJourneyNavigationLoader).toHaveBeenCalledTimes(1);
   });
 
   it("keeps language changes out of browser back history", async () => {
@@ -157,6 +194,8 @@ describe("journey detail", () => {
     window.history.pushState(null, "", "/journey/masternet");
 
     renderJourneyDetail();
+
+    await screen.findByRole("heading", { level: 2, name: "Titulo grande" });
 
     fireEvent.click(screen.getByTestId("locale-pt-br"));
 

@@ -1,5 +1,4 @@
 import { BookText, Cloud, FileDown, Github, Globe, Instagram, Linkedin, Mail, Network, Server, Shield, Terminal, Trophy, Twitter, Workflow, type LucideIcon } from "lucide-react";
-import { getMarkdownContent } from "@/lib/content";
 import type { Locale } from "@/contexts/LocaleContext";
 import { messages } from "@/i18n/messages";
 import type { JourneyType } from "@/i18n/locales/types";
@@ -19,7 +18,6 @@ export interface ExperienceItemContent {
 }
 
 export interface TimelineEntryContent {
-  detail: string;
   id: string;
   skills: string[];
   summary: string;
@@ -220,7 +218,6 @@ export function getSiteContent(locale: Locale): SiteContent {
       description: copy.journey.description,
       eyebrow: copy.journey.eyebrow,
       entries: timelineDefinitions.map((item) => ({
-        detail: getMarkdownContent(`journey/${item.id}/detail/${locale}.md`),
         id: item.id,
         skills: copy.journey.entries[item.id].skills,
         summary: copy.journey.entries[item.id].summary,

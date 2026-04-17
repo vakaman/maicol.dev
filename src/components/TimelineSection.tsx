@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useLocale } from "@/contexts/LocaleContext";
 import { getLocalizedPath } from "@/lib/locale-routing";
+import { showJourneyNavigationLoader } from "@/lib/loading-indicator";
 
 export interface TimelineEntry {
   id: string;
@@ -23,6 +24,7 @@ const TimelineSection = () => {
 
   function handleReadMore(event: MouseEvent<HTMLAnchorElement>, entryId: string) {
     event.preventDefault();
+    showJourneyNavigationLoader();
     navigate(getLocalizedPath(locale, `/journey/${entryId}`), {
       state: {
         returnTo: {

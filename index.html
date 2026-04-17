@@ -3,6 +3,136 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        margin: 0;
+        background: #050805;
+      }
+
+      #root[data-boot-locked="true"] {
+        visibility: hidden;
+      }
+
+      #boot-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at top, rgba(0, 255, 102, 0.12), transparent 42%),
+          linear-gradient(180deg, #020402 0%, #050805 55%, #020402 100%);
+        color: #b7ffca;
+        font-family: "JetBrains Mono", "Fira Code", monospace;
+        transition: opacity 220ms ease, visibility 220ms ease;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      #boot-loader::before,
+      #boot-loader::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      #boot-loader::before {
+        background:
+          repeating-linear-gradient(
+            180deg,
+            rgba(14, 38, 18, 0.14) 0,
+            rgba(14, 38, 18, 0.14) 1px,
+            transparent 1px,
+            transparent 5px
+          );
+        opacity: 0.6;
+      }
+
+      #boot-loader::after {
+        top: -100%;
+        background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 102, 0.14) 50%, transparent 100%);
+        animation: boot-scan 2.8s linear infinite;
+      }
+
+      #boot-loader[data-state="visible"] {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .boot-loader__panel {
+        position: relative;
+        width: min(28rem, calc(100vw - 2rem));
+        border: 1px solid rgba(0, 255, 102, 0.28);
+        background: rgba(2, 8, 2, 0.82);
+        box-shadow:
+          0 0 0 1px rgba(0, 255, 102, 0.08),
+          0 0 28px rgba(0, 255, 102, 0.16);
+        padding: 1.25rem;
+      }
+
+      .boot-loader__brand {
+        margin: 0 0 0.75rem;
+        color: #73ff9a;
+        font-size: clamp(1.25rem, 4vw, 2rem);
+        letter-spacing: 0.12em;
+        text-transform: lowercase;
+      }
+
+      .boot-loader__line {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0 0 0.65rem;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: rgba(183, 255, 202, 0.82);
+      }
+
+      .boot-loader__prompt {
+        color: #3cff78;
+      }
+
+      .boot-loader__bar {
+        position: relative;
+        height: 0.3rem;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(80, 255, 142, 0.12);
+      }
+
+      .boot-loader__bar::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, transparent 0%, rgba(80, 255, 142, 0.95) 50%, transparent 100%);
+        animation: boot-progress 1.2s ease-in-out infinite;
+      }
+
+      @keyframes boot-progress {
+        to {
+          transform: translateX(100%);
+        }
+      }
+
+      @keyframes boot-scan {
+        to {
+          transform: translateY(200%);
+        }
+      }
+    </style>
+    <link
+      id="app-stylesheet"
+      rel="stylesheet"
+      href="/src/index.css"
+      onload="window.__markBootStylesReady && window.__markBootStylesReady()"
+    />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.ico" />
     <title>Backend Infrastructure and Distributed Systems</title>
@@ -26,6 +156,64 @@
     <meta name="twitter:title" content="Backend Infrastructure and Distributed Systems" />
     <meta name="twitter:description" content="Portfolio of Maicol K. Oliveira covering backend engineering, infrastructure, networking, AWS, unit testing, automation, and distributed systems for scalable platforms." />
     <meta name="twitter:image" content="https://maicol.dev/favicon.ico" />
+    <script>
+      window.__bootLoaderState = {
+        appReady: false,
+        shown: false,
+        stylesReady: false,
+        fullyReady: false,
+        delayMs: 180,
+        timer: null,
+      };
+      window.__finalizeBoot = function () {
+        if (!window.__bootLoaderState.appReady || !window.__bootLoaderState.stylesReady) {
+          return;
+        }
+
+        window.__bootLoaderState.fullyReady = true;
+        if (window.__bootLoaderState.timer) {
+          clearTimeout(window.__bootLoaderState.timer);
+          window.__bootLoaderState.timer = null;
+        }
+
+        var loader = document.getElementById("boot-loader");
+        var root = document.getElementById("root");
+        if (loader) {
+          loader.removeAttribute("data-state");
+          loader.setAttribute("hidden", "");
+        }
+        if (root) {
+          root.removeAttribute("data-boot-locked");
+        }
+      };
+      window.__markBootAppReady = function () {
+        window.__bootLoaderState.appReady = true;
+        window.__finalizeBoot();
+      };
+      window.__markBootStylesReady = function () {
+        window.__bootLoaderState.stylesReady = true;
+        window.__finalizeBoot();
+      };
+      window.__scheduleBootLoader = function () {
+        if (window.__bootLoaderState.fullyReady || window.__bootLoaderState.timer) return;
+
+        window.__bootLoaderState.timer = window.setTimeout(function () {
+          if (window.__bootLoaderState.fullyReady) return;
+
+          var loader = document.getElementById("boot-loader");
+          if (!loader) return;
+
+          loader.removeAttribute("hidden");
+          loader.setAttribute("data-state", "visible");
+          window.__bootLoaderState.shown = true;
+        }, window.__bootLoaderState.delayMs);
+      };
+      window.addEventListener("load", function () {
+        if (!window.__bootLoaderState.stylesReady) {
+          window.__markBootStylesReady();
+        }
+      }, { once: true });
+    </script>
     <script type="application/ld+json">
       [
         {
@@ -53,7 +241,31 @@
   </head>
 
   <body>
-    <div id="root">
+    <div
+      id="boot-loader"
+      data-testid="boot-loader"
+      data-nosnippet
+      role="presentation"
+      hidden
+    >
+      <div class="boot-loader__panel">
+        <div class="boot-loader__brand">&gt; maicol.dev</div>
+        <div class="boot-loader__line"><span class="boot-loader__prompt">$</span> initializing matrix interface...</div>
+        <div class="boot-loader__line"><span class="boot-loader__prompt">$</span> loading experiences, journey, contact</div>
+        <div class="boot-loader__bar" aria-hidden="true"></div>
+      </div>
+    </div>
+    <script>
+      window.__scheduleBootLoader();
+    </script>
+    <noscript>
+      <style>
+        #boot-loader {
+          display: none;
+        }
+      </style>
+    </noscript>
+    <div id="root" data-boot-locked="true">
       <!-- SEO_SHELL_START -->
       <main>
         <header>

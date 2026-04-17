@@ -1,8 +1,7 @@
 const markdownModules = import.meta.glob("../../content/**/*.md", {
-  eager: true,
   import: "default",
   query: "?raw",
-}) as Record<string, string>;
+}) as Record<string, () => Promise<string>>;
 
 const markdownAssetModules = import.meta.glob("../../content/**/*.{avif,gif,jpeg,jpg,png,svg,webp}", {
   eager: true,
@@ -36,18 +35,24 @@ function normalizeRelativePath(relativePath: string): string {
   return normalizedSegments.join("/");
 }
 
-function getMarkdownText(relativePath: string): string {
-  const content = markdownModules[getModuleKey(relativePath)];
+const markdownCache = new Map<string, Promise<string>>();
 
-  if (!content) {
+export async function loadMarkdownContent(relativePath: string): Promise<string> {
+  const moduleLoader = markdownModules[getModuleKey(relativePath)];
+
+  if (!moduleLoader) {
     throw new Error(`Missing content file: ${relativePath}`);
   }
 
-  return normalizeMarkdown(content);
-}
+  const cachedContent = markdownCache.get(relativePath);
 
-export function getMarkdownContent(relativePath: string): string {
-  return getMarkdownText(relativePath);
+  if (cachedContent) {
+    return cachedContent;
+  }
+
+  const contentPromise = moduleLoader().then((content) => normalizeMarkdown(content));
+  markdownCache.set(relativePath, contentPromise);
+  return contentPromise;
 }
 
 export function resolveMarkdownAssetPath(markdownRelativePath: string, assetPath: string): string {
