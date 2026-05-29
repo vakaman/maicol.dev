@@ -73,3 +73,41 @@ test("fast journey navigation does not flash the floating loader", async ({ page
   await expect(page.getByRole("heading", { level: 1, name: "Masternet Telecom" })).toBeVisible();
   await expect(page.getByTestId("app-floating-loader")).toHaveCount(0);
 });
+
+test("journey images open in fullscreen without repeated asset reloads", async ({ page }) => {
+  const imageRequests: string[] = [];
+  const imagePath = "/img/network-eng-1.jpg";
+
+  page.on("request", (request) => {
+    const url = request.url();
+
+    if (url.includes("/img/") && /\.(png|jpe?g|webp|gif|svg)$/i.test(url)) {
+      imageRequests.push(url);
+    }
+  });
+
+  await page.goto("/journey/masternet");
+  await expect(page.getByRole("heading", { level: 1, name: "Masternet Telecom" })).toBeVisible();
+
+  const inlineImage = page.locator(`img[src="${imagePath}"]`).first();
+  await inlineImage.scrollIntoViewIfNeeded();
+  await expect(inlineImage).toBeVisible();
+
+  await inlineImage.click();
+
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await expect(dialog.locator(`img[src="${imagePath}"]`)).toBeVisible();
+
+  await dialog.click({ position: { x: 8, y: 8 } });
+  await expect(dialog).toHaveCount(0);
+
+  await inlineImage.click();
+  await expect(dialog).toBeVisible();
+
+  await page.getByRole("button", { name: "Close" }).click();
+  await expect(dialog).toHaveCount(0);
+
+  const masternetImageRequests = imageRequests.filter((url) => url.includes("network-eng-1.jpg"));
+  expect(masternetImageRequests.length).toBeLessThanOrEqual(2);
+});

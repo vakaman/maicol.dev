@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { LocaleProvider } from "@/contexts/LocaleContext";
@@ -98,6 +98,8 @@ describe("journey detail", () => {
       "",
       "![Arquitetura](https://example.com/matrix.png \"Fluxo principal\")",
       "",
+      '<video src="https://example.com/journey.mp4" title="Demo video" controls playsinline preload="metadata"></video>',
+      "",
       "---",
       "",
       "Texto final.",
@@ -145,6 +147,9 @@ describe("journey detail", () => {
     expect(phpCodeBlock?.closest("pre")).toHaveClass("markdown-code-block");
     expect(screen.getByRole("img", { name: "Arquitetura" })).toHaveAttribute("src", "https://example.com/matrix.png");
     expect(screen.getByText("Fluxo principal")).toBeInTheDocument();
+    const renderedVideo = document.querySelector("video[src='https://example.com/journey.mp4']");
+    expect(renderedVideo).toBeInTheDocument();
+    expect(screen.getByText("Demo video")).toBeInTheDocument();
     expect(document.querySelector("hr")).toBeInTheDocument();
     expect(await screen.findByRole("img", { name: "Mermaid diagram" })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Preview" })).toBeInTheDocument();
@@ -167,6 +172,35 @@ describe("journey detail", () => {
       );
     });
     expect(hideJourneyNavigationLoader).toHaveBeenCalledTimes(1);
+  });
+
+  it("opens clicked journey images in fullscreen and closes the preview", async () => {
+    renderJourneyDetail();
+
+    const inlineImage = await screen.findByRole("img", { name: "Arquitetura" });
+
+    fireEvent.click(inlineImage);
+
+    const dialog = await screen.findByRole("dialog");
+    const expandedImage = within(dialog).getByRole("img", { name: "Arquitetura" });
+
+    expect(expandedImage).toHaveAttribute("src", "https://example.com/matrix.png");
+    expect(within(dialog).getByText("Fluxo principal")).toBeInTheDocument();
+
+    fireEvent.click(within(dialog).getByText("Fluxo principal"));
+
+    await waitFor(() => {
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    });
+
+    fireEvent.click(inlineImage);
+
+    const reopenedDialog = await screen.findByRole("dialog");
+    fireEvent.click(screen.getByRole("button", { name: "Close" }));
+
+    await waitFor(() => {
+      expect(reopenedDialog).not.toBeInTheDocument();
+    });
   });
 
   it("hides the strategic navigation loader after the markdown resolves", async () => {
