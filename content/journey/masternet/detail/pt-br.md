@@ -67,3 +67,15 @@ Hoje agradeço de coração a todos os profissionais que me ajudaram durante ess
 Depois de longos anos, com uma estrutura robusta e pronta para mais muitos anos de crescimento, era hora de navegar por novas águas. Eu entrei na Master quando ela tinha em torno de 200 Mb de consumo de rede agregado, e quando saí de lá era mais de 20 Gb em horário de pico. A rede suportava proporcionalmente muito mais, o sistema era capaz de lidar com a complexidade de muitos usuários, os profissionais atuando estavam capacitados e prontos para lidar com o que fosse e, enfim... eu já não precisava mais estar lá.
 
 Eu me sentia na obrigação de enfrentar novas batalhas em ambientes que eu não dominava. Foi assim que me despedi da Masternet.
+
+![Pra que usar virtualizado, quando a gente tem equipamento sobrando?](/img/network-eng-1.jpg "Pra que usar virtualizado, quando a gente tem equipamento sobrando?")
+
+![Operação de rede na Masternet](/img/network-eng-2.jpg "Operação de rede na Masternet")
+
+![Centro de treinamento da Datacom](/img/data-center-3.jpg "Centro de treinamento da Datacom")
+
+![Cara de cansado? sim... isso aconteceu em alguma madrugada.](/img/net-admin-3.jpeg "Cara de cansado? sim... isso aconteceu em alguma madrugada.")
+
+![Treinamento na Datacom](/img/studying-1.jpg "Treinamento na Datacom")
+
+![Treinamento na TargetTrust](/img/studying-3.jpeg "Treinamento na TargetTrust")

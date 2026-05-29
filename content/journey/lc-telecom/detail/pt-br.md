@@ -27,3 +27,5 @@ Algum tempo se passou e, sim, eu consegui. O instalador entrava no sistema que e
 # O valor que ficou
 
 Depois de um tempo, acabei saindo da empresa, mas meu sistema ficou por muitos anos funcionando direitinho por lá. Sinceramente, não sei o que aconteceu com ele depois, mas tenho certeza de que entregou muito valor para a empresa.
+
+![Infraestrutura de rede na L&C Telecom](/img/network-eng-3.jpg "Infraestrutura de rede na L&C Telecom")

@@ -27,3 +27,5 @@ Some time passed and, yes, I made it. The installers would log into the system I
 # The value that remained
 
 After a while, I ended up leaving the company, but my system kept running there properly for many years. Honestly, I do not know what happened to it after that, but I am sure it delivered a lot of value to the company.
+
+![Network infrastructure at L&C Telecom](/img/network-eng-3.jpg "Network infrastructure at L&C Telecom")

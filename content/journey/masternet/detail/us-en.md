@@ -67,3 +67,15 @@ Today I sincerely thank all the professionals who helped me during that time: Do
 After many years, with a robust structure ready for many more years of growth, it was time to sail toward new waters. I joined Master when it had around 200 Mb of aggregate network consumption, and when I left it was already over 20 Gb during peak hours. The network could handle proportionally much more, the system was capable of dealing with the complexity of many users, the professionals there were trained and ready to handle whatever came next and, in the end... I was no longer needed there.
 
 I felt obligated to face new battles in environments I did not yet dominate. That is how I said goodbye to Masternet.
+
+![Why use virtualization when we still have hardware to spare?](/img/network-eng-1.jpg "Why use virtualization when we still have hardware to spare?")
+
+![Network operations at Masternet](/img/network-eng-2.jpg "Network operations at Masternet")
+
+![Datacom training center](/img/data-center-3.jpg "Datacom training center")
+
+![Tired face? Yes... this definitely happened during some late-night shift.](/img/net-admin-3.jpeg "Tired face? Yes... this definitely happened during some late-night shift.")
+
+![Training at Datacom](/img/studying-1.jpg "Training at Datacom")
+
+![Training at TargetTrust](/img/studying-3.jpeg "Training at TargetTrust")
