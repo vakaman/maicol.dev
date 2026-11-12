@@ -32,7 +32,7 @@ const homeMetadata = {
         name: "Maicol K. Oliveira",
         sameAs: [
           "https://github.com/vakaman",
-          "https://www.linkedin.com/in/maicolkaiseroliveira",
+          "https://br.linkedin.com/in/maicolkaiseroliveira/pt",
           "https://blog.maicol.dev",
         ],
         url: siteUrl,
@@ -62,7 +62,7 @@ const homeMetadata = {
         name: "Maicol K. Oliveira",
         sameAs: [
           "https://github.com/vakaman",
-          "https://www.linkedin.com/in/maicolkaiseroliveira",
+          "https://br.linkedin.com/in/maicolkaiseroliveira/pt",
           "https://blog.maicol.dev",
         ],
         url: siteUrl,
@@ -244,7 +244,7 @@ const homeShellContent = {
       "Cada etapa adiciona contexto sobre decisões de arquitetura, suporte em produção, desenho de integrações e evolução de plataforma, ajudando buscadores e visitantes a entenderem a profundidade da experiência.",
     ],
     contactParagraph:
-      'Perfis externos e publicações estão disponíveis no <a href="https://github.com/vakaman" rel="noopener noreferrer" target="_blank">GitHub</a>, <a href="https://www.linkedin.com/in/maicolkaiseroliveira" rel="noopener noreferrer" target="_blank">LinkedIn</a> e no <a href="https://blog.maicol.dev" rel="noopener noreferrer" target="_blank">blog</a>.',
+      'Perfis externos e publicações estão disponíveis no <a href="https://github.com/vakaman" rel="noopener noreferrer" target="_blank">GitHub</a>, <a href="https://br.linkedin.com/in/maicolkaiseroliveira/pt" rel="noopener noreferrer" target="_blank">LinkedIn</a> e no <a href="https://blog.maicol.dev" rel="noopener noreferrer" target="_blank">blog</a>.',
     nav: {
       blog: "blog",
       contact: "contato",
@@ -275,7 +275,7 @@ const homeShellContent = {
       "Each step adds context around architecture decisions, production support, integration design, and platform evolution, helping search engines and visitors understand the depth of experience behind backend, infrastructure, and distributed systems work.",
     ],
     contactParagraph:
-      'External profiles and publications are available on <a href="https://github.com/vakaman" rel="noopener noreferrer" target="_blank">GitHub</a>, <a href="https://www.linkedin.com/in/maicolkaiseroliveira" rel="noopener noreferrer" target="_blank">LinkedIn</a>, and the <a href="https://blog.maicol.dev" rel="noopener noreferrer" target="_blank">blog</a>.',
+      'External profiles and publications are available on <a href="https://github.com/vakaman" rel="noopener noreferrer" target="_blank">GitHub</a>, <a href="https://br.linkedin.com/in/maicolkaiseroliveira/pt" rel="noopener noreferrer" target="_blank">LinkedIn</a>, and the <a href="https://blog.maicol.dev" rel="noopener noreferrer" target="_blank">blog</a>.',
     nav: {
       blog: "blog",
       contact: "contact",
