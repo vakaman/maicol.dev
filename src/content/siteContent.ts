@@ -120,7 +120,7 @@ const contactDefinitions: readonly ContactDefinition[] = [
     username: "vakaman",
   },
   {
-    href: "https://www.linkedin.com/in/maicolkaiseroliveira",
+    href: "https://br.linkedin.com/in/maicolkaiseroliveira/pt",
     icon: Linkedin,
     slug: "linkedin",
     username: "maicolkaiseroliveira",
