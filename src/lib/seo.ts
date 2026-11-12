@@ -8,7 +8,7 @@ const DEFAULT_OG_IMAGE = `${siteUrl}/favicon.ico`;
 const PERSON_NAME = "Maicol K. Oliveira";
 const PERSON_SAME_AS = [
   "https://github.com/vakaman",
-  "https://www.linkedin.com/in/maicolkaiseroliveira",
+  "https://br.linkedin.com/in/maicolkaiseroliveira/pt",
   "https://blog.maicol.dev",
 ];
 
